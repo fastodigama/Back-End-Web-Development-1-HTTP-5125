@@ -1,7 +1,10 @@
 ﻿using System.Globalization;
+using System.Text.RegularExpressions;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Hosting;
+using System;
 
 namespace Assignment_1.Controllers
 {
@@ -43,15 +46,21 @@ namespace Assignment_1.Controllers
             double largeUnitPrice = 40.50;
             double HST = 0.13 ;
 
-            double smallResault = smallUnitPrice * small;
-            double largeResault = largeUnitPrice * large;
-            double subtotal = smallResault + largeResault;
-            double tax = subtotal * HST;
-            double totalWithTax = subtotal + tax;
+            double smallResault =Math.Round(smallUnitPrice * small,2);
+            double largeResault = Math.Round(largeUnitPrice * large,2);
+            double subtotal = Math.Round(smallResault + largeResault,2);
+            double tax = Math.Round(subtotal * HST,2);
+            double totalWithTax = Math.Round(subtotal + tax);
 
             //reference:https://learn.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings#CFormatString
 
-            return $"{small} Small @ $25.50 = {smallResault.ToString("C2",CultureInfo.CurrentCulture)}; {large} Large @ $40.50 = {largeResault.ToString("C2", CultureInfo.CurrentCulture)}; Subtotal = {subtotal.ToString("C2", CultureInfo.CurrentCulture)}; Tax = {tax.ToString("C2", CultureInfo.CurrentCulture)} HST; Total = {totalWithTax.ToString("C2", CultureInfo.CurrentCulture)}";
+            // new CultureInfo("en-CA", false): Sets culture to English (CANADA) with default settings.(false) means it's affected by user operating system 
+            // .NumberFormat: Formats numbers, currency based on culture. 
+
+            NumberFormatInfo nfi = new CultureInfo("en-CA", false).NumberFormat;
+            nfi.CurrencyGroupSeparator = "";
+
+            return $@"{small} Small @ {smallUnitPrice.ToString("C", nfi)} = {smallResault.ToString("C", nfi)}; {large} Large @ {largeUnitPrice.ToString("C", nfi)} = {largeResault.ToString("C", nfi)}; Subtotal = {subtotal.ToString("C", nfi)}; Tax = {tax.ToString("C", nfi)} HST; Total = {totalWithTax.ToString("C", nfi)}";
         }
 
 
