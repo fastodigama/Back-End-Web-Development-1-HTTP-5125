@@ -1,0 +1,58 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\it_fa\\source\\repos\\RoutingW2025B\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{42D37994-3707-46EA-B4CE-C22B39B3E42A}|RoutingW2025B\\RoutingW2025B.csproj|c:\\users\\it_fa\\source\\repos\\routingw2025b\\routingw2025b\\controllers\\routecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{42D37994-3707-46EA-B4CE-C22B39B3E42A}|RoutingW2025B\\RoutingW2025B.csproj|solutionrelative:routingw2025b\\controllers\\routecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{42D37994-3707-46EA-B4CE-C22B39B3E42A}|RoutingW2025B\\RoutingW2025B.csproj|c:\\users\\it_fa\\source\\repos\\routingw2025b\\routingw2025b\\controllers\\testcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{42D37994-3707-46EA-B4CE-C22B39B3E42A}|RoutingW2025B\\RoutingW2025B.csproj|solutionrelative:routingw2025b\\controllers\\testcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "RouteController.cs",
+              "DocumentMoniker": "C:\\Users\\it_fa\\source\\repos\\RoutingW2025B\\RoutingW2025B\\Controllers\\RouteController.cs",
+              "RelativeDocumentMoniker": "RoutingW2025B\\Controllers\\RouteController.cs",
+              "ToolTip": "C:\\Users\\it_fa\\source\\repos\\RoutingW2025B\\RoutingW2025B\\Controllers\\RouteController.cs",
+              "RelativeToolTip": "RoutingW2025B\\Controllers\\RouteController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-24T18:19:23.364Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "TestController.cs",
+              "DocumentMoniker": "C:\\Users\\it_fa\\source\\repos\\RoutingW2025B\\RoutingW2025B\\Controllers\\TestController.cs",
+              "RelativeDocumentMoniker": "RoutingW2025B\\Controllers\\TestController.cs",
+              "ToolTip": "C:\\Users\\it_fa\\source\\repos\\RoutingW2025B\\RoutingW2025B\\Controllers\\TestController.cs",
+              "RelativeToolTip": "RoutingW2025B\\Controllers\\TestController.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAswA8AAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-24T17:57:00.326Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
