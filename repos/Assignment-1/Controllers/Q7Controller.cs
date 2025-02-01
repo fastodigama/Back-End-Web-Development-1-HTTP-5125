@@ -18,24 +18,18 @@ namespace Assignment_1.Controllers
         /// <example>
         /// GET api/Q7/timemachine?days=5
         /// -> A get method that returns a date that is 5 days from today.
-        /// Response Body: "2025-02-05" (assuming today is January 31, 2025)
+        /// output: "2025-02-05" (assuming today is January 31, 2025)
         /// </example>
         /// <example>
         /// GET api/Q7/timemachine?days=-3
         /// -> A get method that returns a date that is 3 days before today.
-        /// Response Body: "2025-01-28" (assuming today is January 31, 2025)
+        /// output : "2025-01-28" (assuming today is January 31, 2025)
         /// </example>
         /// /// <remarks>
         /// References:
-        /// <list type="bullet">
-        /// <item>
-        /// <description><a href="https://www.c-sharpcorner.com/blogs/date-and-time-format-in-c-sharp-programming1">Date and Time Format in C# Programming</a></description>
-        /// </item>
-        /// <item>
-        /// <description><a href="https://stackoverflow.com/questions/11151976/subtract-days-from-a-datetime">Subtract Days from a DateTime</a></description>
-        /// </item>
-        /// </list>
-        /// </remarks>
+        /// "https://www.c-sharpcorner.com/blogs/date-and-time-format-in-c-sharp-programming1">Date and Time Format in C# Programming"        
+        ///"https://stackoverflow.com/questions/11151976/subtract-days-from-a-datetime">Subtract Days from a DateTime"
+      
 
 
         [HttpGet(template:"timemachine")]

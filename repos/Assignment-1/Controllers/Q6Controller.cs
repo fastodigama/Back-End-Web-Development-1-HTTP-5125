@@ -10,12 +10,12 @@ namespace Assignment_1.Controllers
         /// <summary>
         /// Handles HTTP GET requests and returns the area of a hexagon.
         /// </summary>
-        /// <param name="side">The length of one side of the hexagon.</param>
+        /// <param name="side">The length of hexagon  side  .</param>
         /// <returns>The area of the hexagon if the side length is positive; otherwise, returns 0.</returns>
         /// <example>
         /// GET api/Q6/hexagon?side=5
         /// -> A get method that returns the area of the hexagon with the given side length.
-        /// Response Body: 64.9519052838329
+        /// output : 64.9519052838329
         /// </example>
 
         [HttpGet(template:"hexagon")]

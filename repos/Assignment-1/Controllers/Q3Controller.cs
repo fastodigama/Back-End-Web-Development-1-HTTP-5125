@@ -11,14 +11,13 @@ namespace Assignment_1.Controllers
         /// Controller for handling cube calculations.
         /// </summary>
         /// <summary>
-        /// Handles HTTP GET requests and returns the cube of the given integer.
+        /// Handles HTTP GET requests and returns the cube of the sent integer.
         /// </summary>
         /// <param name="id">The integer to be cubed.</param>
-        /// <returns>The cube of the given integer.</returns>
+        /// <returns>The cube of the sent integer.</returns>
         /// <example>
         /// GET api/Q3/cube/3
         /// -> A get method that returns the cube of the given integer.
-        /// Response Body: 27
         /// </example>
 
         [HttpGet(template: "cube/{id}")]

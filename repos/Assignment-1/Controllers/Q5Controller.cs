@@ -11,14 +11,14 @@ namespace Assignment_1.Controllers
         /// <summary>
         /// Handles HTTP POST requests and returns a message with the provided secret.
         /// </summary>
-        /// <param name="secret">The secret integer to be included in the message.</param>
-        /// <returns>A string message revealing the secret.</returns>
+        /// <param name="secret">The secret integer.</param>
+        /// <returns>A  message telling the secret.</returns>
         /// <example>
         /// POST api/Q5/Secret
         /// HEADERS: Content-Type: application/json
         /// BODY: { "secret": 5 }
-        /// -> A post method that returns a message with the provided secret.
-        /// Response Body: "Shh.. the secret is 5"
+        /// -> A post method that returns a message with the secret.
+        /// output: "Shh.. the secret is 5"
         /// </example>
 
         [HttpPost(template:"Secret")]

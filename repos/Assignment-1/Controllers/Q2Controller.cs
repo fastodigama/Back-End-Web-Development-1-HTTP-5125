@@ -18,7 +18,7 @@ namespace Assignment_1.Controllers
         /// <example>
         /// GET api/Q2/Greeting?name=Fadel
         /// -> A get method that returns a greeting message.
-        /// Response Body: "Hi Fadel!"
+        /// output: "Hi Fadel!"
         /// </example>
 
 

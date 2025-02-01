@@ -8,7 +8,7 @@ namespace Assignment_1.Controllers
     public class Q4Controller : ControllerBase
     {
         /// <summary>
-        /// Controller for handling knock-knock jokes.
+        /// Controller for responding to knock-knock.
         /// </summary>
         /// <summary>
         /// Handles HTTP POST requests and returns the response "Who’s there?".
@@ -17,7 +17,7 @@ namespace Assignment_1.Controllers
         /// <example>
         /// POST api/Q4/knockknock
         /// -> A post method that returns the response "Who’s there?".
-        /// Response Body: "Who’s there?"
+        /// output: "Who’s there?"
         /// </example>
 
         [HttpPost("knockknock")]

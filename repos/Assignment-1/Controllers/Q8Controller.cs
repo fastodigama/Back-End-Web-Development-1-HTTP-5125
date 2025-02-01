@@ -22,19 +22,15 @@ namespace Assignment_1.Controllers
         /// <example>
         /// POST api/QX/squashfellows
         /// HEADERS: Content-Type: application/x-www-form-urlencoded
-        /// FORM DATA: "small=2&large=3"
+        /// FORM input: "small=2&large=3"
         /// -> A post method with a form-encoded request body.
-        /// Body Content: small: 2, large: 3
-        /// Response Body: "2 Small @ $25.50 = $51.00; 3 Large @ $40.50 = $121.50; Subtotal = $172.50; Tax = $22.43 HST; Total = $194.93"
+        /// inputt: small: 2, large: 3
+        /// output : "2 Small @ $25.50 = $51.00; 3 Large @ $40.50 = $121.50; Subtotal = $172.50; Tax = $22.43 HST; Total = $194.93"
         /// </example>
         /// <remarks>
-        /// References:
-        /// <list type="bullet">
-        /// <item>
-        /// <description><a href="https://learn.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings#CFormatString">Standard Numeric Format Strings</a></description>
-        /// </item>
-        /// </list>
-        /// </remarks>
+        /// References:       
+        ///"https://learn.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings#CFormatString">Standard Numeric Format Strings"
+       
 
 
         [HttpPost(template: "squashfellows")]
