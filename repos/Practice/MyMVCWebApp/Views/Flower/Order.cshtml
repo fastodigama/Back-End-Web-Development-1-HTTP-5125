@@ -1,0 +1,55 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    // it would be nice if we had a way to organise the flower type with their price 
+    // the key is the flower type, the value is the cost of the unit
+    Dictionary<string, decimal> FlowerPrices = new Dictionary<string, decimal>()
+    {
+        { "Roses", 4.00M },
+        {"Tulips", 3.50M },
+        {"Jasmin", 6.00M },
+
+    };
+
+    ViewData["title"] = "Buy Now!";
+}
+
+<h1> Order some flowers!</h1>
+
+<!-- Ask the user what kind of flowers they buy-->
+
+<form method="POST" action="/Flower/OrderSummary">
+    <div>
+        <label for="OrderAddress">Order Address:</label>
+        <input type="text" name="OrderAddress" id="OrderAddr" />
+    </div>
+    <div>
+        <label for="NumFlowers">Number of Flowers:</label>
+        <input type="number" name="NumFlowers" id="NumFlowers" />
+    </div>
+    
+        <label for="FlowerType">Type:</label>
+        <div>
+            <div>
+
+                @foreach(KeyValuePair<string,decimal> FlowerPrice in FlowerPrices)
+                {
+                    <div>
+                    <input type="radio" name="FlowerType" id="@FlowerPrice.Key" value="@FlowerPrice.Key" />
+                    <label for="@FlowerPrice.Key">@FlowerPrice.Key ($@FlowerPrice.Value ea)</label>
+                    </div>
+                   
+                }
+               
+        
+        
+    </div>
+    </div>
+
+    <div>
+        <input type="submit" value="Order Now!" />
+    </div>
+
+
+</form>

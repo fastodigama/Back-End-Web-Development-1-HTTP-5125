@@ -1,0 +1,19 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    //The store Owner
+    //this is an istruction to the server to store the name of the owner
+    string ownerName = "Fadel";
+
+    DateTime Today = DateTime.Now;
+    string colour = "blue";
+
+    string link = "Order";
+
+}
+
+<h1> Welcome to our valentines' flower store</h1>
+<p style="color:@colour"> The Owner of the store is @ownerName. The current day is @Today.ToString("yyyy-MM-dd")</p>
+<h2> This is some text</h2>
+<a href="@link">Order some flowers now!</a>
