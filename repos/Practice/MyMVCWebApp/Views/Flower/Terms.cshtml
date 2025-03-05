@@ -1,0 +1,22 @@
+﻿@{
+	List<string> Terms = new List<string>();
+
+	Terms.Add("We store customer information for orders");
+	Terms.Add("we store order information");
+	Terms.Add("Flowers can be refunded after 24 hours after ordering");
+}
+
+
+
+
+<h2>Terms and Conditions version# @ViewData["version"] </h2>
+
+<ol>
+
+	@foreach(string Term in Terms)
+	{
+		<li>@Term</li>
+	}
+	
+	
+</ol>

@@ -1,0 +1,23 @@
+﻿
+@model IEnumerable<MyMVCWebApp.Models.FlowerOrder>
+
+
+
+<h2> History of our Orders</h2>
+
+<p>There are @Model.Count() orders</p>
+
+@foreach(FlowerOrder order in Model)
+{
+	<div>
+		Reference:@order.OrderID
+	</div>
+	<div>
+		Address: @order.DeliveryAddress
+		</div>
+		<div>
+		Total: $@order.OrderTotal
+		</div>
+	
+}
+

@@ -5,16 +5,29 @@
 
 
 }
+@model MyMVCWebApp.Models.FlowerOrder //<-- this to call the class FlowerOrder, do not use it when with @ModelView
 
 
 <h1> Order Summary</h1>
 
-<p> You ordered @ViewData["NumFlowers"] Flowers</p>
-<p> the flower type is @ViewData["FlowerType"] </p>
-<p> the flowers will be sent to @ViewData["OrderAddress"]</p>
+@* This code when using @ViewData *@
 
-<hr />
+@* <p> You ordered @ViewData["NumFlowers"] Flowers</p> *@
+@* <p> the flower type is @ViewData["FlowerType"] </p> *@
+@* <p> the flowers will be sent to @ViewData["OrderAddress"]</p> *@
 
-<p> the subtotal is @ViewData["Subtotal"] </p>
-<p> the tax is  @ViewData["Tax"]</p>
-<p> the final total is  @ViewData["OrderTotal"]</p>
+@* <hr /> *@
+
+@* <p> the subtotal is @ViewData["Subtotal"] </p> *@
+@* <p> the tax is  @ViewData["Tax"]</p> *@
+@* <p> the final total is  @ViewData["OrderTotal"]</p> *@
+
+@* This code when using the model class of flowerorder: *@
+
+ <p> You ordered @Model.NumFlowers Flowers</p> 
+ <p> the flower type is @Model.FlowerType </p> 
+ <p> the flowers will be sent to @Model.DeliveryAddress </p>
+  <hr /> 
+<p> the subtotal is @Model.SubTotal </p>
+<p> the tax is @Model.TaxAmount @Model.Label  </p>
+<p> the final total is @Model.OrderTotal </p>
