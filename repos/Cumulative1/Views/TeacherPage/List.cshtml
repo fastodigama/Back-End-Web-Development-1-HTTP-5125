@@ -1,0 +1,107 @@
+﻿@model  IEnumerable<Cumulative1.Models.Teacher>
+<style>
+	body {
+		background-color: #F8F5E9;
+		padding:0;
+		margin:0;
+		font-size:1em;
+	}
+	h1{
+		color: #3A7D44;
+		margin: 10px;
+		text-align:center;
+	}
+	h2{
+		color: #9DC08B;
+	}
+
+	form {
+		display:flex;
+		flex-flow: row wrap;
+		justify-content:space-around;
+		max-width: 900px;
+		margin: 2em auto;
+		padding: 1em;
+		border: 1px solid #DF6D14;
+		border-radius: 10px;
+		background-color: #9DC08B;
+		color: #F8F5E9 ;
+		box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+	}
+
+	form > * {
+			margin: 0.5em 0;
+	}
+
+	
+
+
+	a:link, a:visited{
+		text-decoration:none;
+		color: #DF6D14;
+	}
+
+	#fromDate, #toDate {
+		flex:1;
+		margin-left: 10px;
+		border-radius: 5px;
+		border: 1px solid #ccc;
+		background-color: #F8F5E9;
+		color: #DF6D14;
+	}
+	.button{
+		display: inline-block;
+		flex:1;
+		background-color: #DF6D14;
+		color: #F8F5E9;
+		font-size: 15px;
+		text-decoration: none;
+		padding: 12px;
+		border-radius: 10px;
+		min-width: 153px;
+		border: 0;
+		margin-top: 1em;
+		text-align: center;
+
+	}
+
+	.teacher-links a {
+		display: inline-block;
+		margin-right: 10px;
+		text-decoration: none; 
+		text-align:center;
+		color: #3A7D44; 
+	}
+
+</style>
+<h1>Teachers List and Find by hiring date</h1>
+@* Source: exercise #12 from Blog repository *@
+<div>
+	<h2>Search by hiring date:</h2>
+
+</div>
+<form method="GET" action="/TeacherPage/List">
+	<div>
+		<label for="FromDate">From date</label>
+		<input type="date" name="FromDate"  id="fromDate"/>
+		<label for="ToDate">To date</label>
+		<input type="date" name="ToDate" id="toDate" />
+		<input class="button" type="submit" value="Search" />
+	</div>
+</form>
+
+<div>
+	<h2> List of all Teachers: </h2>
+</div>
+
+
+
+<div class="teacher-links">
+	<!-- Loop through each teacher in the Model -->
+	@foreach (Teacher teacher in Model)
+	{
+		<a href="/TeacherPage/Show/@teacher.TeatcherId">@teacher.TeacherFname @teacher.TeacherLname
+		</a>
+	}
+</div>
+

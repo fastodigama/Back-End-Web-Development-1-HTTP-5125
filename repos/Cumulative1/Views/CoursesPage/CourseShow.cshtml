@@ -1,0 +1,45 @@
+﻿@model Cumulative1.Models.Courses
+<style>
+    body {
+        background-color: #F4F6FF;
+        padding: 20px;
+        margin: 0;
+    }
+
+
+    h1 {
+        text-align: center;
+        color: #F3C623;
+        font-size: 2.5em;
+        margin-bottom: 20px;
+    }
+
+
+
+    p {
+        font-size: 1em;
+        margin: 10px 0;
+        display: flex;
+        align-items: center;
+    }
+
+
+    label {
+        font-weight: bold;
+        color: #EB8317;
+        margin-right: 10px;
+        flex-basis: 150px;
+        text-align: right;
+    }
+
+    strong {
+        color: #10375C;
+    }
+</style>
+
+<h1> Course Details: </h1>
+<p><label>Course ID</label> <strong>@Model.courseId </strong> </p>
+<p><label>Course Name </label> <strong>@Model.courseName </strong></p>
+<p><label>Start Date </label> <strong>@Model.startDate.ToString("yyyy-MM-dd") </strong></p>
+<p><label>End Date </label> <strong> @Model.endDate.ToString("yyyy-MM-dd") </strong>  </p>
+<p><label>Teacher Name </label> <strong> @Model.TeacherName</strong></p>

@@ -1,0 +1,88 @@
+﻿@model IEnumerable<Cumulative1.Models.Students>
+<style>
+    body {
+        background-color: #27005D;
+        padding: 0;
+        margin: 0;
+        font-size: 1em;
+    }
+
+    h1 {
+        color: #E4F1FF;
+        margin: 10px;
+        text-align: center;
+    }
+
+    h2 {
+        color: #9400FF;
+        text-align:center
+    }
+
+    a:link, a:visited {
+        text-decoration: none;
+        color: #E4F1FF;
+    }
+
+    .student-list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        gap: 15px;
+        margin: 0 auto;
+        padding-bottom: 50px;
+        width: 80%;
+    }
+
+    .student-card {
+        background-color: #AED2FF;
+        padding: 15px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        border: 1px solid #ddd;
+        transition: all 0.3s ease;
+        margin-bottom: 20px;
+        width: 220px;
+    }
+
+    .student-card:hover {
+        transform: scale(1.1);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+     }
+
+    .student-card p {
+        margin: 5px 0;
+        font-size: 1.1em;
+    }
+
+    .student-card label {
+        font-weight: bold;
+        color: #9400FF;
+     }
+
+     .student-card .value {
+        font-weight: normal;
+        color: #27005D;
+     }
+
+    </style>
+<h1>Read functionality for Students</h1>
+
+<h2>Select Student for more information</h2>
+
+<div class="student-list">
+    <!-- Loop through each student in the Model -->
+    @foreach (Students student in Model)
+    {
+        <!-- Link to the Student details page -->
+        <a href="/StudentPage/StudentShow/@student.StudentId">
+            <!-- Card containing student information -->
+            <div class="student-card">
+                
+                <p><label>First Name:</label> <span class="value">@student.StudentFirstName</span></p>
+               
+                <p><label>Last Name:</label> <span class="value">@student.StudentLastName</span></p>
+            </div>
+        </a>
+    }
+</div>
+
