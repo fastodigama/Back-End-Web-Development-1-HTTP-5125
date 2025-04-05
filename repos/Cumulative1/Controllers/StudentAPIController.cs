@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MySql.Data.MySqlClient;
+using Mysqlx.Crud;
 
 namespace Cumulative1.Controllers
 {
@@ -112,7 +113,103 @@ namespace Cumulative1.Controllers
                 return SelectedStudent;
             }
 
+        /// <summary>
+        /// Adds a new student record to the database using the provided student information.
+        /// This method validates and inserts the details, returning the ID of the newly added student.
+        /// </summary>
+        /// <param name="NewStudent">
+        /// A Students object containing the following properties:
+        /// - StudentFirstName: The first name of the student.
+        /// - StudentLastName: The last name of the student.
+        /// - StudentNumber: A unique identifier for the student.
+        /// - StudentEnrollDate: The date the student enrolled.
+        /// </param>
+        /// <returns>
+        /// The ID of the newly inserted student as an integer.
+        /// </returns>
+        /// <example>
+        /// POST api/studentapi/addstudent
+        /// Header: Content-Type: application/json
+        /// Body: 
+        /// {
+        ///   "StudentFirstName": "John",
+        ///   "StudentLastName": "Doe",
+        ///   "StudentNumber": "S456",
+        ///   "StudentEnrollDate": "2023-09-01"
+        /// }
+        /// Example cURL:
+        /// curl -X "POST" -d "{\"StudentFirstName\":\"John\",\"StudentLastName\":\"Doe\",.\"StudentNumber\":\"S456\",\"StudentEnrollDate\":\"2023-09-01\"}" -H "Content-Type: application/json" "https://localhost:xx/API/StudentAPI/AddStudent"    
+        /// </example>
 
+        [HttpPost(template: "AddStudent")]
+
+        public object AddStudent([FromBody] Students NewStudent)
+        {
+            using (MySqlConnection Connection = _connection.AccessDatabase())
+            {
+                Connection.Open();
+                MySqlCommand command = Connection.CreateCommand();
+                string query = "INSERT INTO students(studentfname, studentlname, studentnumber, enroldate)" +
+                    " VALUES(@studentfname, @studentlname, @studentnumber, @enroldate);";
+
+
+
+                command.CommandText = query;
+                command.Parameters.AddWithValue("@studentfname", NewStudent.StudentFirstName);
+                command.Parameters.AddWithValue("@studentlname", NewStudent.StudentLastName);
+                command.Parameters.AddWithValue("@studentnumber", NewStudent.StudentNumber);
+                command.Parameters.AddWithValue("@enroldate", NewStudent.StudentEnrollDate);
+                command.Prepare(); // Prepare the command to prevent SQL injection
+                command.ExecuteNonQuery();
+
+                //return last inserted id
+                return Convert.ToInt32(command.LastInsertedId);
+
+            }
+        }
+
+        /// <summary>
+        /// Deletes a student record from the database based on the provided student ID.
+        /// Validates the deletion by checking the number of affected rows and returns 
+        /// a confirmation message indicating the success or failure of the operation.
+        /// </summary>
+        /// <param name="StudentId">
+        /// The ID of the student to be deleted. This corresponds to the primary key in the students table.
+        /// </param>
+        /// <returns>
+        /// A string message:
+        /// - "Student Deleted Successfully" if the student was found and deleted.
+        /// - "Student Not Found" if no student exists with the given ID.
+        /// </returns>
+        /// <example>
+        /// DELETE api/studentapi/deletestudent/5
+        /// This API call will delete the student with the ID 5.
+        /// Example cURL:
+        /// curl -X "DELETE" "https://localhost:xx/API/StudentAPI/DeleteStudent/5"
+        /// </example>
+        
+        [HttpDelete(template: "DeleteStudent/{StudentId}")]
+
+        public string DeleteStudent(int StudentId)
+        {
+            using(MySqlConnection Connection = _connection.AccessDatabase())
+            {
+                Connection.Open();
+                MySqlCommand command = Connection.CreateCommand();
+                string deleteQuery = "DELETE FROM studends WHERE studentid = @studentid";
+                command.CommandText = deleteQuery;
+                command.Parameters.AddWithValue("@studentid", StudentId);
+                int rowsAffected = command.ExecuteNonQuery();
+                if (rowsAffected > 0)
+                {
+                    return "Student Deleted Successfully";
+                }
+                else
+                {
+                    return "Student Not Found";
+                }
+            }
         }
     }
+}
 

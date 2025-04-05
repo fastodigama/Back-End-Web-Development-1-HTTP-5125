@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using MySql.Data.MySqlClient;
 using System.Diagnostics;
 using Mysqlx.Datatypes;
+using System.Text.RegularExpressions;
 
 
 namespace Cumulative1.Controllers
@@ -201,48 +202,102 @@ namespace Cumulative1.Controllers
 
 
         /// <summary>
-        /// This method will recieve Teacher information and add it to the database
+        /// Adds a new teacher to the database with the provided teacher information.
+        /// Validates the input data to ensure correctness and avoids duplicate entries.
         /// </summary>
+        /// <param name="NewTeacher">
+        /// A Teacher object containing details such as first name, last name, employee number, hire date, and salary.
+        /// </param>
         /// <returns>
-        /// "I want to add a teacher to the database"
+        /// A confirmation message indicating success or failure:
+        /// - On success, returns the ID of the newly added teacher.
+        /// - On failure, returns a message describing the validation error or the issue (e.g., duplicate employee number or no name provided or future hire date).
         /// </returns>
         /// <example>
         /// POST api/teacherapi/addteacher
         /// Header: Content-Type: application/json
-        /// FORM DATA:
-        /// "teacherid=13&teacherfname=Fadel&teacherlname=I M&employeenumber=T123&hiredate=1981-05-25&salary=99.3" 
-        /// -H "Content-Type: application/x-www-form-urlencoded" "https://localhost:xx/api/teacherapi/addteacher"
+        /// Body: 
+        /// {
+        ///   "teacherFname": "Fadel",
+        ///   "teacherLname": "I M",
+        ///   "employeeNumber": "T123",
+        ///   "hireDate": "1981-05-25",
+        ///   "salary": 99.3
+        /// }
+        /// Example cURL:
+        /// curl -X "POST" -d "{\"TeacherFname\":\"Fadel\",\"TeacherLname\":\"I M\",\"EmployeeNumber\":\"T789\",\"HireDate\":\"2025-03-25\",\"Salary\":\"55.5\"}" -H "Content-Type: application/json" "https://localhost:xx/API/TeacherAPI/AddTeacher"
         /// </example>
 
         [HttpPost(template: "AddTeacher")]
 
 
-        //public string AddTeacher([FromBody] int teacherid, [FromForm] string teacherfname, 
-        //    [FromForm] string teacherlname, [FromForm] string employeenumber,
-        //    [FromForm] DateTime hiredate, [FromForm] decimal salary)
-        public int AddTeacher([FromBody] Teacher NewTeacher)
+        public object AddTeacher([FromBody] Teacher NewTeacher)
         {
-            //return $"I want to add a teacher to the database{teacherid}{teacherfname}{teacherlname}
-            //{employeenumber}{hiredate}{salary}";
 
-            string query = "INSERT INTO teachers(teacherfname, teacherlname, employeenumber, hiredate, salary ) " +
+            // check if teacher first or last name is null or empty
+
+            if (string.IsNullOrEmpty(NewTeacher.TeacherFname) || string.IsNullOrEmpty(NewTeacher.TeacherLname))
+            {
+                return "Teacher first name or last name cannot be empty.";
+
+            }
+
+            // check if Teacher Hire Date is in the future
+
+            if (NewTeacher.HireDate > DateTime.Now)
+            {
+                return "Teacher hire date cannot be in the future.";
+            }
+
+            //check Employee Number is not “T” followed by digits
+
+            //source:https://www.youtube.com/watch?v=0lU_DG7s0qA&t=20s
+
+            var pattern = @"^T\d{3}$";
+
+            Match employeeNumberMatch = Regex.Match(NewTeacher.EmployeeNumber, pattern);
+
+            if (!employeeNumberMatch.Success)
+            {
+                return "Employee number must start with 'T' followed by digits.";
+            }
+
+            //adding the teacher
+              string query = "INSERT INTO teachers(teacherfname, teacherlname, employeenumber, hiredate, salary ) " +
                 "VALUES(@teacherfname, @teacherlname,@employeenumber,@hiredate,@salary);";
+
             using (MySqlConnection Connection = _connection.AccessDatabase())
             {
                 Connection.Open();
                 MySqlCommand command = Connection.CreateCommand();
+
+                //check if the employee number already exists in the database
+                string selectQuery = "SELECT * FROM teachers WHERE employeenumber=@eid";
+                command.Parameters.AddWithValue("@eid", NewTeacher.EmployeeNumber);
+
+                command.CommandText = selectQuery;
+                using (MySqlDataReader Reader = command.ExecuteReader())
+                {
+                    if (Reader.Read())
+                    {                        
+                            return "Employee number already exists. Please use a different employee number.";
+                        
+                    }
+                }
+
                 command.CommandText = query;
-                command.Parameters.AddWithValue("@teacherfname", NewTeacher.TeacherFname);
-                command.Parameters.AddWithValue("@teacherlname", NewTeacher.TeacherLname);
-                command.Parameters.AddWithValue("@employeenumber", NewTeacher.EmployeeNumber);
-                command.Parameters.AddWithValue("@hiredate", NewTeacher.HireDate);
-                command.Parameters.AddWithValue("@salary", NewTeacher.Salary);
-                command.Prepare();
-                command.ExecuteNonQuery();
-                return Convert.ToInt32(command.LastInsertedId);
-            }
-                 return 0;
+                    command.Parameters.AddWithValue("@teacherfname", NewTeacher.TeacherFname);
+                    command.Parameters.AddWithValue("@teacherlname", NewTeacher.TeacherLname);
+                    command.Parameters.AddWithValue("@employeenumber", NewTeacher.EmployeeNumber);
+                    command.Parameters.AddWithValue("@hiredate", NewTeacher.HireDate);
+                    command.Parameters.AddWithValue("@salary", NewTeacher.Salary);
+                    command.Prepare();
+                    command.ExecuteNonQuery();
+                    return Convert.ToInt32(command.LastInsertedId);
+                }
+           
         }
+        
 
 
         /// <summary>
@@ -272,8 +327,18 @@ namespace Cumulative1.Controllers
                 string sqlQuery = "DELETE FROM teachers WHERE teacherid = @TeacherId";
                 command.Parameters.AddWithValue("@TeacherId", TeacherId);
                 command.CommandText = sqlQuery;
-                command.ExecuteNonQuery();
-                return "Teacher with ID " + TeacherId + " has been deleted.";
+                int numberOfAffectedRows = command.ExecuteNonQuery();
+
+                //Error Handling on Delete when trying to delete a teacher that does not exist
+
+                if (numberOfAffectedRows == 0)
+                {
+                    return "No teacher found with ID " + TeacherId + ".";
+                }
+
+            
+
+            return "Teacher with ID " + TeacherId + " has been deleted.";
             }
         }
 
@@ -287,3 +352,4 @@ namespace Cumulative1.Controllers
 
     }
 }
+

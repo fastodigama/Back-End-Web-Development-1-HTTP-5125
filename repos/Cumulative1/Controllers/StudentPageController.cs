@@ -35,5 +35,51 @@ namespace Cumulative1.Controllers
             // Pass the selected student to the view
             return View(SelectedStudent);
         }
+
+        [HttpGet]
+
+        public IActionResult NewStudent()
+        {
+
+            //redirect to the new student page
+            return View();
+        }
+
+        /// <summary>
+        /// Adds a new student to the database using the provided student information.
+        /// After successfully adding the student, redirects the user to the StudentList view.
+        /// </summary>
+        /// <param name="NewStudent">
+        /// A Students object containing the new student's details:
+        /// - StudentFirstName: The first name of the student.
+        /// - StudentLastName: The last name of the student.
+        /// - StudentNumber: A unique identifier for the student.
+        /// - StudentEnrollDate: The date the student enrolled.
+        /// </param>
+        /// <returns>
+        /// An IActionResult that redirects to the StudentList view.
+        /// </returns>
+        /// <example>
+        /// POST api/studentapi/createstudent
+        /// Header: Content-Type: application/json
+        /// Body:
+        /// {
+        ///   "StudentFirstName": "Alice",
+        ///   "StudentLastName": "Brown",
+        ///   "StudentNumber": "S123",
+        ///   "StudentEnrollDate": "2025-04-05"
+        /// }
+        /// Example cURL:
+        /// curl -X "POST" -d "{\"StudentFirstName\":\"Alice\",\"StudentLastName\":\"Brown\",\"StudentNumber\":\"S123\",\"StudentEnrollDate\":\"2025-04-05\"}" -H "Content-Type: application/json" "https://localhost:xx/API/StudentAPI/CreateStudent"
+        /// </example>
+
+
+        [HttpPost]
+        public IActionResult CreateStudent(Students NewStudent)
+        {
+            _APIcontroller.AddStudent(NewStudent);
+
+            return RedirectToAction("StudentList", NewStudent.StudentId);
+        }
     }
 }

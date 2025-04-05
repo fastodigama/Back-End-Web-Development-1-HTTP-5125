@@ -1,0 +1,90 @@
+﻿<style>
+    .form-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 25px;
+        background-color: #f9f9f9;
+        border: 2px solid #ddd;
+        border-radius: 8px;
+        width: 100%;
+        max-width: 450px;
+        
+    }
+
+    h1 {
+        text-align: center;
+        color: #444;
+        font-family: Arial, sans-serif;
+        margin-bottom: 20px;
+    }
+
+    .form-items {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin-bottom: 15px;
+    }
+
+    label {
+        font-size: 14px;
+        font-weight: bold;
+        color: #666;
+        margin-bottom: 6px;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    input[type="date"] {
+        padding: 10px;
+        border: 1px solid #bbb;
+        border-radius: 5px;
+        font-size: 14px;
+        width: 100%;
+        background-color: #fff;
+        box-sizing: border-box;
+    }
+
+    button {
+        padding: 12px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        width: 100%;
+        transition: background-color 0.3s ease;
+    }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+</style>
+
+<h1>Add New Student</h1>
+
+<div class="form-container">
+    <form action="/StudentPage/CreateStudent" method="POST">
+        <div class="form-items">
+            <label for="studentfname">First Name:</label>
+            <input type="text" id="studentfname" name="studentfname" required>
+        </div>
+        <div class="form-items">
+            <label for="studentlname">Last Name:</label>
+            <input type="text" id="studentltname" name="studentlname" required>
+        </div>
+        <div class="form-items">
+            <label for="studentid">Student ID:</label>
+            <input type="text" id="studentid" name="studentid" required>
+        </div>
+        <div class="form-items">
+            <label for="enrollmentdate">Enrollment Date:</label>
+            <input type="date" id="enrollmentdate" name="enrollmentdate" required>
+        </div>
+       
+        <div class="form-items">
+            <button type="submit">Add Student</button>
+        </div>
+    </form>
+</div>

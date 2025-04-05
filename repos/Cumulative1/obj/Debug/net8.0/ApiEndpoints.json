@@ -47,6 +47,48 @@
   },
   {
     "ContainingType": "Cumulative1.Controllers.StudentAPIController",
+    "Method": "AddStudent",
+    "RelativePath": "api/StudentAPI/AddStudent",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "NewStudent",
+        "Type": "Cumulative1.Models.Students",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Cumulative1.Controllers.StudentAPIController",
+    "Method": "DeleteStudent",
+    "RelativePath": "api/StudentAPI/DeleteStudent/{StudentId}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "StudentId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.String",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Cumulative1.Controllers.StudentAPIController",
     "Method": "FindStudent",
     "RelativePath": "api/StudentAPI/FindStudent/{StudentId}",
     "HttpMethod": "GET",
@@ -105,17 +147,7 @@
         "IsRequired": true
       }
     ],
-    "ReturnTypes": [
-      {
-        "Type": "System.Int32",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
+    "ReturnTypes": []
   },
   {
     "ContainingType": "Cumulative1.Controllers.TeacherAPIController",
