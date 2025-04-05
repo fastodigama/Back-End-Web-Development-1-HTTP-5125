@@ -10,8 +10,8 @@
         public DateTime HireDate { get; set; } // HireDate will represent hiredate in the teachers table
         public decimal Salary { get; set; } // Salary will represent salary in the teachers table.
 
-        public List<Courses> teacherCourses { get; set; }
+        public List<Courses>? teacherCourses { get; set; }
 
-        public string errorMessage { get; set; } // to display error msg if teacher is not found
+        public string? errorMessage { get; set; } // to display error msg if teacher is not found
     }
 }

@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MySql.Data.MySqlClient;
 using System.Diagnostics;
+using Mysqlx.Datatypes;
 
 
 namespace Cumulative1.Controllers
@@ -196,6 +197,89 @@ namespace Cumulative1.Controllers
             }
 
         }
+
+
+
+        /// <summary>
+        /// This method will recieve Teacher information and add it to the database
+        /// </summary>
+        /// <returns>
+        /// "I want to add a teacher to the database"
+        /// </returns>
+        /// <example>
+        /// POST api/teacherapi/addteacher
+        /// Header: Content-Type: application/json
+        /// FORM DATA:
+        /// "teacherid=13&teacherfname=Fadel&teacherlname=I M&employeenumber=T123&hiredate=1981-05-25&salary=99.3" 
+        /// -H "Content-Type: application/x-www-form-urlencoded" "https://localhost:xx/api/teacherapi/addteacher"
+        /// </example>
+
+        [HttpPost(template: "AddTeacher")]
+
+
+        //public string AddTeacher([FromBody] int teacherid, [FromForm] string teacherfname, 
+        //    [FromForm] string teacherlname, [FromForm] string employeenumber,
+        //    [FromForm] DateTime hiredate, [FromForm] decimal salary)
+        public int AddTeacher([FromBody] Teacher NewTeacher)
+        {
+            //return $"I want to add a teacher to the database{teacherid}{teacherfname}{teacherlname}
+            //{employeenumber}{hiredate}{salary}";
+
+            string query = "INSERT INTO teachers(teacherfname, teacherlname, employeenumber, hiredate, salary ) " +
+                "VALUES(@teacherfname, @teacherlname,@employeenumber,@hiredate,@salary);";
+            using (MySqlConnection Connection = _connection.AccessDatabase())
+            {
+                Connection.Open();
+                MySqlCommand command = Connection.CreateCommand();
+                command.CommandText = query;
+                command.Parameters.AddWithValue("@teacherfname", NewTeacher.TeacherFname);
+                command.Parameters.AddWithValue("@teacherlname", NewTeacher.TeacherLname);
+                command.Parameters.AddWithValue("@employeenumber", NewTeacher.EmployeeNumber);
+                command.Parameters.AddWithValue("@hiredate", NewTeacher.HireDate);
+                command.Parameters.AddWithValue("@salary", NewTeacher.Salary);
+                command.Prepare();
+                command.ExecuteNonQuery();
+                return Convert.ToInt32(command.LastInsertedId);
+            }
+                 return 0;
+        }
+
+
+        /// <summary>
+        /// This method will recieve the teacher id  from the DeleteConfirm view 
+        /// and delete a teacher from the database 
+        /// </summary>
+        /// <param name="TeacherId"></param> // The primary key of the teacher to be deleted
+        /// <returns>
+        /// Confirmation message indicating the teacher has been deleted
+        /// </returns>
+        /// <example>
+        ///  DELETE api/TeacherApi/DeleteTeacher/12
+        /// 
+
+        [HttpDelete(template: "DeleteTeacher/{TeacherId}")]
+
+        public string DeleteTeacher(int TeacherId)
+        {
+            if (TeacherId <= 0)
+            {
+                return "Invalid TeacherId. TeacherId must be a positive integer.";
+            }
+            using (MySqlConnection Connection = _connection.AccessDatabase())
+            {
+                Connection.Open();
+                MySqlCommand command = Connection.CreateCommand();
+                string sqlQuery = "DELETE FROM teachers WHERE teacherid = @TeacherId";
+                command.Parameters.AddWithValue("@TeacherId", TeacherId);
+                command.CommandText = sqlQuery;
+                command.ExecuteNonQuery();
+                return "Teacher with ID " + TeacherId + " has been deleted.";
+            }
+        }
+
+
+
+
 
 
 
