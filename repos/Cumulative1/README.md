@@ -1,7 +1,7 @@
 # Teacher, Student, and Course Management System
 
 ## Project Overview
-This project is a web application designed to manage and display information related to teachers, students, and courses. It includes functionality for listing, searching, and viewing detailed data through both API endpoints and Razor views. The system is built using ASP.NET Core MVC and integrates MySQL for database operations.
+This project is a web application designed to manage and display information related to teachers, students, and courses. It includes functionality for listing, searching, viewing, adding, and deleting data through both API endpoints and Razor views. The system is built using ASP.NET Core MVC and integrates MySQL for database operations.
 
 ---
 
@@ -11,6 +11,8 @@ This project is a web application designed to manage and display information rel
 - **StudentsAPIController**:
   - `ListStudents`: Retrieves a list of all students from the database.
   - `FindStudent`: Retrieves details for a specific student by ID.
+  - `AddStudent`: Adds a new student to the database.
+  - `DeleteStudent`: Deletes a student by ID from the database.
 
 - **CoursesAPIController**:
   - `ListCourses`: Retrieves a list of all courses from the database.
@@ -19,15 +21,21 @@ This project is a web application designed to manage and display information rel
 - **TeachersAPIController**:
   - `ListTeachers`: Retrieves a list of all teachers from the database.
   - `FindTeacher`: Retrieves details for a specific teacher by ID.
+  - `AddTeacher`: Adds a new teacher to the database.
+  - `DeleteTeacher`: Deletes a teacher by ID from the database.
 
 ### 2. Razor Page Controllers
 - **StudentPageController**:
   - `StudentList`: Displays a list of all students in a Razor view.
   - `StudentShow`: Displays detailed information about a specific student.
+  - `AddStudentPage`: Provides a form to add a new student and displays confirmation.
+  - `DeleteStudentPage`: Allows deletion of a student via ID.
 
 - **TeacherPageController**:
   - `TeacherList`: Displays a list of all teachers in a Razor view.
   - `Show`: Displays detailed information about a specific teacher, including courses taught by them.
+  - `AddTeacherPage`: Provides a form to add a new teacher and displays confirmation.
+  - `DeleteTeacherPage`: Allows deletion of a teacher via ID.
 
 - **Course List View**:
   - Lists all courses with links to their respective detailed pages.
@@ -44,11 +52,5 @@ This project is a web application designed to manage and display information rel
 
 ## Setup Instructions
 1. Clone the repository to your local machine:
-2.**Database Connection Parameters**:
-   - Update the database connection string in the `SchoolDbContext` file with the following:
-     - **Server**: Your database server (e.g., `localhost` or a remote server IP).
-     - **Port**: The MySQL port (default: `3306`).
-     - **Database**: The database name (e.g., `SchoolDB`).
-     - **Username**: Your database username (e.g., `root`).
-     - **Password**: Your database password.
+   ```bash
    git clone <repository-url>
