@@ -75,6 +75,7 @@ namespace Cumulative1.Controllers
 
         //GET : /TeacherPage/DeleteConfirm/{Id} -> A webpage that asks the user to confirm deletion of a teacher
 
+        [HttpGet]
         public IActionResult DeleteConfirm(int Id)
         {
             Teacher SelectedTeacher =  _APIcontroller.FindTeacher(Id);

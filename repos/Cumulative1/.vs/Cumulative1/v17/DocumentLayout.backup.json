@@ -7,20 +7,24 @@
       "RelativeMoniker": "D:0:0:{CD768CB2-88F4-4E6A-AC5E-A85E6FF00FE2}|Cumulative1.csproj|solutionrelative:controllers\\studentapicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CD768CB2-88F4-4E6A-AC5E-A85E6FF00FE2}|Cumulative1.csproj|c:\\users\\it_fa\\onedrive\\humbercollage-git\\back-end-web-development-1-http-5125\\repos\\cumulative1\\views\\teacherpage\\new.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{CD768CB2-88F4-4E6A-AC5E-A85E6FF00FE2}|Cumulative1.csproj|solutionrelative:views\\teacherpage\\new.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{CD768CB2-88F4-4E6A-AC5E-A85E6FF00FE2}|Cumulative1.csproj|c:\\users\\it_fa\\onedrive\\humbercollage-git\\back-end-web-development-1-http-5125\\repos\\cumulative1\\controllers\\studentpagecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CD768CB2-88F4-4E6A-AC5E-A85E6FF00FE2}|Cumulative1.csproj|solutionrelative:controllers\\studentpagecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CD768CB2-88F4-4E6A-AC5E-A85E6FF00FE2}|Cumulative1.csproj|c:\\users\\it_fa\\onedrive\\humbercollage-git\\back-end-web-development-1-http-5125\\repos\\cumulative1\\views\\studentpage\\newstudent.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{CD768CB2-88F4-4E6A-AC5E-A85E6FF00FE2}|Cumulative1.csproj|solutionrelative:views\\studentpage\\newstudent.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{CD768CB2-88F4-4E6A-AC5E-A85E6FF00FE2}|Cumulative1.csproj|c:\\users\\it_fa\\onedrive\\humbercollage-git\\back-end-web-development-1-http-5125\\repos\\cumulative1\\controllers\\teacherpagecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CD768CB2-88F4-4E6A-AC5E-A85E6FF00FE2}|Cumulative1.csproj|solutionrelative:controllers\\teacherpagecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{CD768CB2-88F4-4E6A-AC5E-A85E6FF00FE2}|Cumulative1.csproj|c:\\users\\it_fa\\onedrive\\humbercollage-git\\back-end-web-development-1-http-5125\\repos\\cumulative1\\views\\studentpage\\studentdeleteconfirm.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{CD768CB2-88F4-4E6A-AC5E-A85E6FF00FE2}|Cumulative1.csproj|solutionrelative:views\\studentpage\\studentdeleteconfirm.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CD768CB2-88F4-4E6A-AC5E-A85E6FF00FE2}|Cumulative1.csproj|c:\\users\\it_fa\\onedrive\\humbercollage-git\\back-end-web-development-1-http-5125\\repos\\cumulative1\\views\\studentpage\\studentlist.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{CD768CB2-88F4-4E6A-AC5E-A85E6FF00FE2}|Cumulative1.csproj|solutionrelative:views\\studentpage\\studentlist.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{CD768CB2-88F4-4E6A-AC5E-A85E6FF00FE2}|Cumulative1.csproj|c:\\users\\it_fa\\onedrive\\humbercollage-git\\back-end-web-development-1-http-5125\\repos\\cumulative1\\controllers\\teacherapicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CD768CB2-88F4-4E6A-AC5E-A85E6FF00FE2}|Cumulative1.csproj|solutionrelative:controllers\\teacherapicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CD768CB2-88F4-4E6A-AC5E-A85E6FF00FE2}|Cumulative1.csproj|c:\\users\\it_fa\\onedrive\\humbercollage-git\\back-end-web-development-1-http-5125\\repos\\cumulative1\\views\\teacherpage\\deleteconfirm.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CD768CB2-88F4-4E6A-AC5E-A85E6FF00FE2}|Cumulative1.csproj|solutionrelative:views\\teacherpage\\deleteconfirm.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{CD768CB2-88F4-4E6A-AC5E-A85E6FF00FE2}|Cumulative1.csproj|c:\\users\\it_fa\\onedrive\\humbercollage-git\\back-end-web-development-1-http-5125\\repos\\cumulative1\\views\\studentpage\\studentshow.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -31,20 +35,24 @@
       "RelativeMoniker": "D:0:0:{CD768CB2-88F4-4E6A-AC5E-A85E6FF00FE2}|Cumulative1.csproj|solutionrelative:views\\teacherpage\\list.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{CD768CB2-88F4-4E6A-AC5E-A85E6FF00FE2}|Cumulative1.csproj|c:\\users\\it_fa\\onedrive\\humbercollage-git\\back-end-web-development-1-http-5125\\repos\\cumulative1\\views\\studentpage\\newstudent.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CD768CB2-88F4-4E6A-AC5E-A85E6FF00FE2}|Cumulative1.csproj|solutionrelative:views\\studentpage\\newstudent.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CD768CB2-88F4-4E6A-AC5E-A85E6FF00FE2}|Cumulative1.csproj|c:\\users\\it_fa\\onedrive\\humbercollage-git\\back-end-web-development-1-http-5125\\repos\\cumulative1\\views\\studentpage\\studentlist.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CD768CB2-88F4-4E6A-AC5E-A85E6FF00FE2}|Cumulative1.csproj|solutionrelative:views\\studentpage\\studentlist.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{CD768CB2-88F4-4E6A-AC5E-A85E6FF00FE2}|Cumulative1.csproj|c:\\users\\it_fa\\onedrive\\humbercollage-git\\back-end-web-development-1-http-5125\\repos\\cumulative1\\views\\teacherpage\\show.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{CD768CB2-88F4-4E6A-AC5E-A85E6FF00FE2}|Cumulative1.csproj|solutionrelative:views\\teacherpage\\show.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CD768CB2-88F4-4E6A-AC5E-A85E6FF00FE2}|Cumulative1.csproj|c:\\users\\it_fa\\onedrive\\humbercollage-git\\back-end-web-development-1-http-5125\\repos\\cumulative1\\controllers\\teacherpagecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CD768CB2-88F4-4E6A-AC5E-A85E6FF00FE2}|Cumulative1.csproj|solutionrelative:controllers\\teacherpagecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{CD768CB2-88F4-4E6A-AC5E-A85E6FF00FE2}|Cumulative1.csproj|c:\\users\\it_fa\\onedrive\\humbercollage-git\\back-end-web-development-1-http-5125\\repos\\cumulative1\\models\\students.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CD768CB2-88F4-4E6A-AC5E-A85E6FF00FE2}|Cumulative1.csproj|solutionrelative:models\\students.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CD768CB2-88F4-4E6A-AC5E-A85E6FF00FE2}|Cumulative1.csproj|c:\\users\\it_fa\\onedrive\\humbercollage-git\\back-end-web-development-1-http-5125\\repos\\cumulative1\\controllers\\teacherapicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CD768CB2-88F4-4E6A-AC5E-A85E6FF00FE2}|Cumulative1.csproj|solutionrelative:controllers\\teacherapicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CD768CB2-88F4-4E6A-AC5E-A85E6FF00FE2}|Cumulative1.csproj|c:\\users\\it_fa\\onedrive\\humbercollage-git\\back-end-web-development-1-http-5125\\repos\\cumulative1\\controllers\\studentpagecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CD768CB2-88F4-4E6A-AC5E-A85E6FF00FE2}|Cumulative1.csproj|solutionrelative:controllers\\studentpagecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{CD768CB2-88F4-4E6A-AC5E-A85E6FF00FE2}|Cumulative1.csproj|c:\\users\\it_fa\\onedrive\\humbercollage-git\\back-end-web-development-1-http-5125\\repos\\cumulative1\\views\\teacherpage\\new.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CD768CB2-88F4-4E6A-AC5E-A85E6FF00FE2}|Cumulative1.csproj|solutionrelative:views\\teacherpage\\new.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -54,11 +62,37 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 9,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 5,
+              "Title": "DeleteConfirm.cshtml",
+              "DocumentMoniker": "C:\\Users\\it_fa\\OneDrive\\HumberCollage-Git\\Back-End-Web-Development-1-HTTP-5125\\repos\\Cumulative1\\Views\\TeacherPage\\DeleteConfirm.cshtml",
+              "RelativeDocumentMoniker": "Views\\TeacherPage\\DeleteConfirm.cshtml",
+              "ToolTip": "C:\\Users\\it_fa\\OneDrive\\HumberCollage-Git\\Back-End-Web-Development-1-HTTP-5125\\repos\\Cumulative1\\Views\\TeacherPage\\DeleteConfirm.cshtml",
+              "RelativeToolTip": "Views\\TeacherPage\\DeleteConfirm.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-05T20:23:47.486Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Students.cs",
+              "DocumentMoniker": "C:\\Users\\it_fa\\OneDrive\\HumberCollage-Git\\Back-End-Web-Development-1-HTTP-5125\\repos\\Cumulative1\\Models\\Students.cs",
+              "RelativeDocumentMoniker": "Models\\Students.cs",
+              "ToolTip": "C:\\Users\\it_fa\\OneDrive\\HumberCollage-Git\\Back-End-Web-Development-1-HTTP-5125\\repos\\Cumulative1\\Models\\Students.cs",
+              "RelativeToolTip": "Models\\Students.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-05T18:42:42.234Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "List.cshtml",
               "DocumentMoniker": "C:\\Users\\it_fa\\OneDrive\\HumberCollage-Git\\Back-End-Web-Development-1-HTTP-5125\\repos\\Cumulative1\\Views\\TeacherPage\\List.cshtml",
               "RelativeDocumentMoniker": "Views\\TeacherPage\\List.cshtml",
@@ -71,7 +105,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 10,
               "Title": "Show.cshtml",
               "DocumentMoniker": "C:\\Users\\it_fa\\OneDrive\\HumberCollage-Git\\Back-End-Web-Development-1-HTTP-5125\\repos\\Cumulative1\\Views\\TeacherPage\\Show.cshtml",
               "RelativeDocumentMoniker": "Views\\TeacherPage\\Show.cshtml",
@@ -84,7 +118,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 12,
               "Title": "New.cshtml",
               "DocumentMoniker": "C:\\Users\\it_fa\\OneDrive\\HumberCollage-Git\\Back-End-Web-Development-1-HTTP-5125\\repos\\Cumulative1\\Views\\TeacherPage\\New.cshtml",
               "RelativeDocumentMoniker": "Views\\TeacherPage\\New.cshtml",
@@ -92,57 +126,56 @@
               "RelativeToolTip": "Views\\TeacherPage\\New.cshtml",
               "ViewState": "AgIAAC0AAAAAAAAAAAAAAFAAAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-04-05T07:12:34.438Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-05T07:12:34.438Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "StudentShow.cshtml",
               "DocumentMoniker": "C:\\Users\\it_fa\\OneDrive\\HumberCollage-Git\\Back-End-Web-Development-1-HTTP-5125\\repos\\Cumulative1\\Views\\StudentPage\\StudentShow.cshtml",
               "RelativeDocumentMoniker": "Views\\StudentPage\\StudentShow.cshtml",
               "ToolTip": "C:\\Users\\it_fa\\OneDrive\\HumberCollage-Git\\Back-End-Web-Development-1-HTTP-5125\\repos\\Cumulative1\\Views\\StudentPage\\StudentShow.cshtml",
               "RelativeToolTip": "Views\\StudentPage\\StudentShow.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAACcAAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-04-05T07:12:08.776Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 2,
               "Title": "TeacherPageController.cs",
               "DocumentMoniker": "C:\\Users\\it_fa\\OneDrive\\HumberCollage-Git\\Back-End-Web-Development-1-HTTP-5125\\repos\\Cumulative1\\Controllers\\TeacherPageController.cs",
               "RelativeDocumentMoniker": "Controllers\\TeacherPageController.cs",
               "ToolTip": "C:\\Users\\it_fa\\OneDrive\\HumberCollage-Git\\Back-End-Web-Development-1-HTTP-5125\\repos\\Cumulative1\\Controllers\\TeacherPageController.cs",
               "RelativeToolTip": "Controllers\\TeacherPageController.cs",
-              "ViewState": "AgIAADcAAAAAAAAAAAAkwEYAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAFAAAAAAAAAAAAAswGMAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-05T07:06:42.578Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 9,
               "Title": "StudentList.cshtml",
               "DocumentMoniker": "C:\\Users\\it_fa\\OneDrive\\HumberCollage-Git\\Back-End-Web-Development-1-HTTP-5125\\repos\\Cumulative1\\Views\\StudentPage\\StudentList.cshtml",
               "RelativeDocumentMoniker": "Views\\StudentPage\\StudentList.cshtml",
               "ToolTip": "C:\\Users\\it_fa\\OneDrive\\HumberCollage-Git\\Back-End-Web-Development-1-HTTP-5125\\repos\\Cumulative1\\Views\\StudentPage\\StudentList.cshtml",
               "RelativeToolTip": "Views\\StudentPage\\StudentList.cshtml",
-              "ViewState": "AgIAAD0AAAAAAAAAAAAmwFkAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAEIAAAAAAAAAAAAswFMAAABSAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-04-05T06:24:48.823Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 1,
               "Title": "StudentPageController.cs",
               "DocumentMoniker": "C:\\Users\\it_fa\\OneDrive\\HumberCollage-Git\\Back-End-Web-Development-1-HTTP-5125\\repos\\Cumulative1\\Controllers\\StudentPageController.cs",
               "RelativeDocumentMoniker": "Controllers\\StudentPageController.cs",
               "ToolTip": "C:\\Users\\it_fa\\OneDrive\\HumberCollage-Git\\Back-End-Web-Development-1-HTTP-5125\\repos\\Cumulative1\\Controllers\\StudentPageController.cs",
               "RelativeToolTip": "Controllers\\StudentPageController.cs",
-              "ViewState": "AgIAADoAAAAAAAAAAAAkwFUAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAFMAAAAAAAAAAADwv2AAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-05T06:13:29.049Z",
               "EditorCaption": ""
@@ -155,7 +188,7 @@
               "RelativeDocumentMoniker": "Controllers\\StudentAPIController.cs",
               "ToolTip": "C:\\Users\\it_fa\\OneDrive\\HumberCollage-Git\\Back-End-Web-Development-1-HTTP-5125\\repos\\Cumulative1\\Controllers\\StudentAPIController.cs*",
               "RelativeToolTip": "Controllers\\StudentAPIController.cs*",
-              "ViewState": "AgIAAI8AAAAAAAAAAAAiwKEAAABSAAAAAAAAAA==",
+              "ViewState": "AgIAAKsAAAAAAAAAAAAswMAAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-05T05:17:43.733Z",
               "EditorCaption": ""
@@ -168,14 +201,14 @@
               "RelativeDocumentMoniker": "Views\\StudentPage\\StudentDeleteConfirm.cshtml",
               "ToolTip": "C:\\Users\\it_fa\\OneDrive\\HumberCollage-Git\\Back-End-Web-Development-1-HTTP-5125\\repos\\Cumulative1\\Views\\StudentPage\\StudentDeleteConfirm.cshtml",
               "RelativeToolTip": "Views\\StudentPage\\StudentDeleteConfirm.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAyAAAAAAAAAA==",
+              "ViewState": "AgIAACEAAAAAAAAAAAAIwDAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-04-05T05:14:17.002Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 8,
               "Title": "NewStudent.cshtml",
               "DocumentMoniker": "C:\\Users\\it_fa\\OneDrive\\HumberCollage-Git\\Back-End-Web-Development-1-HTTP-5125\\repos\\Cumulative1\\Views\\StudentPage\\NewStudent.cshtml",
               "RelativeDocumentMoniker": "Views\\StudentPage\\NewStudent.cshtml",
@@ -188,13 +221,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 4,
               "Title": "TeacherAPIController.cs",
               "DocumentMoniker": "C:\\Users\\it_fa\\OneDrive\\HumberCollage-Git\\Back-End-Web-Development-1-HTTP-5125\\repos\\Cumulative1\\Controllers\\TeacherAPIController.cs",
               "RelativeDocumentMoniker": "Controllers\\TeacherAPIController.cs",
               "ToolTip": "C:\\Users\\it_fa\\OneDrive\\HumberCollage-Git\\Back-End-Web-Development-1-HTTP-5125\\repos\\Cumulative1\\Controllers\\TeacherAPIController.cs",
               "RelativeToolTip": "Controllers\\TeacherAPIController.cs",
-              "ViewState": "AgIAALsAAAAAAAAAAAAgwOMAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAADgBAAAAAAAAAAAkwOMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-05T00:54:07.462Z",
               "EditorCaption": ""

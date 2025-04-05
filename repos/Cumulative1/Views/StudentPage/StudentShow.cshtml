@@ -39,7 +39,9 @@
 <h1> Student Data: </h1>
 <!-- Display the student's information -->
 <p><label>Student ID</label> <strong>@Model.StudentId </strong> </p>
-<p><label>Student First Name </label> <strong>@Model.StudentFirstName </strong></p>
-<p><label>Student First Name </label> <strong>@Model.StudentLastName </strong></p>
-<p><label>Student Number </label> <strong> @Model.StudentNumber </strong>  </p>
-<p><label>Enroll Date </label> <strong> @Model.StudentEnrollDate.ToString("yyyy-MM-dd")</strong></p>
+<p><label>Student First Name </label> <strong>@Model.StudentFName </strong></p>
+<p><label>Student First Name </label> <strong>@Model.StudentLName </strong></p>
+<p><label>Student Number </label> <strong> @Model.studentnumber </strong>  </p>
+<p><label>Enroll Date </label> <strong> @Model.StudentEnrolDate.ToString("yyyy-MM-dd")</strong></p>
+<a href="/StudentPage/StudentDeleteConfirm/@Model.StudentId">Delete This student</a>
+

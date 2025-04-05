@@ -65,7 +65,7 @@
     "ContainingType": "Cumulative1.Controllers.StudentAPIController",
     "Method": "DeleteStudent",
     "RelativePath": "api/StudentAPI/DeleteStudent/{StudentId}",
-    "HttpMethod": "DELETE",
+    "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [

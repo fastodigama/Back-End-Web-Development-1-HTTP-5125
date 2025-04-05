@@ -81,5 +81,27 @@ namespace Cumulative1.Controllers
 
             return RedirectToAction("StudentList", NewStudent.StudentId);
         }
+
+
+        // Action method to confirm delete a student
+        [HttpGet]
+        public IActionResult StudentDeleteConfirm(int Id)
+        {
+            //find the student
+            Students SelectedStudent = _APIcontroller.FindStudent(Id);
+
+            // Pass the selected student to the StudentDeleteConfirm view
+            return View(SelectedStudent);
+        }
+        [HttpPost("DeleteStudent/{Id}")]
+
+
+        public IActionResult StudentDelete(int Id)
+        {
+            _APIcontroller.DeleteStudent(Id);
+
+            return RedirectToAction("StudentList");
+        }
+
     }
 }

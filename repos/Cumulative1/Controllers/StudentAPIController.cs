@@ -69,10 +69,10 @@ namespace Cumulative1.Controllers
 
                         Students CurrentStudent = new Students();
                         CurrentStudent.StudentId = StudentID;
-                        CurrentStudent.StudentFirstName = StudentFirstName;
-                        CurrentStudent.StudentLastName = StudentLastName;
-                        CurrentStudent.StudentNumber = StudentNumber;
-                        CurrentStudent.StudentEnrollDate = EnrollDate;
+                        CurrentStudent.StudentFName = StudentFirstName;
+                        CurrentStudent.StudentLName = StudentLastName;
+                        CurrentStudent.studentnumber = StudentNumber;
+                        CurrentStudent.StudentEnrolDate = EnrollDate;
 
 
                         Students.Add(CurrentStudent);
@@ -100,10 +100,10 @@ namespace Cumulative1.Controllers
                         while (ResultSet.Read())
                         {
                             SelectedStudent.StudentId = Convert.ToInt32(ResultSet["studentid"]);
-                            SelectedStudent.StudentNumber = ResultSet["studentnumber"].ToString();
-                            SelectedStudent.StudentFirstName = ResultSet["studentfname"].ToString();
-                            SelectedStudent.StudentLastName = ResultSet["studentlname"].ToString();
-                            SelectedStudent.StudentEnrollDate = Convert.ToDateTime(ResultSet["enroldate"]);
+                            SelectedStudent.studentnumber = ResultSet["studentnumber"].ToString();
+                            SelectedStudent.StudentFName = ResultSet["studentfname"].ToString();
+                            SelectedStudent.StudentLName = ResultSet["studentlname"].ToString();
+                            SelectedStudent.StudentEnrolDate = Convert.ToDateTime(ResultSet["enroldate"]);
 
                         }
                     }
@@ -154,12 +154,14 @@ namespace Cumulative1.Controllers
 
 
 
+                
+                command.Parameters.AddWithValue("@studentfname", NewStudent.StudentFName);
+                command.Parameters.AddWithValue("@studentlname", NewStudent.StudentLName);
+                command.Parameters.AddWithValue("@studentnumber", NewStudent.studentnumber);
+                command.Parameters.AddWithValue("@enroldate", NewStudent.StudentEnrolDate);
                 command.CommandText = query;
-                command.Parameters.AddWithValue("@studentfname", NewStudent.StudentFirstName);
-                command.Parameters.AddWithValue("@studentlname", NewStudent.StudentLastName);
-                command.Parameters.AddWithValue("@studentnumber", NewStudent.StudentNumber);
-                command.Parameters.AddWithValue("@enroldate", NewStudent.StudentEnrollDate);
                 command.Prepare(); // Prepare the command to prevent SQL injection
+
                 command.ExecuteNonQuery();
 
                 //return last inserted id
@@ -188,7 +190,7 @@ namespace Cumulative1.Controllers
         /// curl -X "DELETE" "https://localhost:xx/API/StudentAPI/DeleteStudent/5"
         /// </example>
         
-        [HttpDelete(template: "DeleteStudent/{StudentId}")]
+        [HttpPost(template: "DeleteStudent/{StudentId}")]
 
         public string DeleteStudent(int StudentId)
         {
@@ -196,7 +198,7 @@ namespace Cumulative1.Controllers
             {
                 Connection.Open();
                 MySqlCommand command = Connection.CreateCommand();
-                string deleteQuery = "DELETE FROM studends WHERE studentid = @studentid";
+                string deleteQuery = "DELETE FROM students WHERE studentid = @studentid";
                 command.CommandText = deleteQuery;
                 command.Parameters.AddWithValue("@studentid", StudentId);
                 int rowsAffected = command.ExecuteNonQuery();

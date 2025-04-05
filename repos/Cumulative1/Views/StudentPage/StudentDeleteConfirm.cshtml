@@ -1,9 +1,55 @@
 ﻿@model Cumulative1.Models.Students
 
-<h2>Are you sure you want to delete teacher  @Model.StudentFirstName @Model.StudentLastName?</h2>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f8f9fa;
+        color: #333;
+        margin: 0;
+        padding: 20px;
+    }
 
-<a href="/TeacherPage/Show/@Model.StudentId">Back</a>
-<form action="/TeacherPage/Delete/@Model.StudentId" method="POST">
+    h2 {
+        color: #d9534f;
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+
+    a {
+        text-decoration: none;
+        color: #5bc0de;
+        font-weight: bold;
+        margin-right: 20px;
+    }
+
+        a:hover {
+            color: #2aabd2;
+            text-decoration: underline;
+        }
+
+    form {
+        margin-top: 10px;
+    }
+
+    input[type="submit"] {
+        background-color: #d9534f;
+        border: none;
+        color: white;
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        border-radius: 4px;
+    }
+
+        input[type="submit"]:hover {
+            background-color: #c9302c;
+        }
+
+</style>
+<h2>Are you sure you want to delete student  @Model.StudentFName @Model.StudentLName?</h2>
+
+<a href="/StudentPage/StudentShow/@Model.StudentId">Back</a>
+<form action="/StudentPage/DeleteStudent/@Model.StudentId" method="POST">
 	<input type="submit" name="Delete" value="Delete" />
 
 </form>
