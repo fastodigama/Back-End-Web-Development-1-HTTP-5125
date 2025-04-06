@@ -17,6 +17,8 @@ This project is a web application designed to manage and display information rel
 - **CoursesAPIController**:
   - `ListCourses`: Retrieves a list of all courses from the database.
   - `FindCourse`: Retrieves details for a specific course by ID.
+  - `AddCourse`: Adds a new course to the database.
+  - `DeleteCourse`: Deletes a course by ID from the database.
 
 - **TeachersAPIController**:
   - `ListTeachers`: Retrieves a list of all teachers from the database.
@@ -37,8 +39,30 @@ This project is a web application designed to manage and display information rel
   - `AddTeacherPage`: Provides a form to add a new teacher and displays confirmation.
   - `DeleteTeacherPage`: Allows deletion of a teacher via ID.
 
-- **Course List View**:
-  - Lists all courses with links to their respective detailed pages.
+- **CoursePageController**:
+  - `CourseList`: Displays a list of all courses in a Razor view.
+  - `CourseShow`: Displays detailed information about a specific course.
+  - `AddCoursePage`: Provides a form to add a new course and displays confirmation.
+  - `DeleteCoursePage`: Allows deletion of a course via ID.
+
+### 3. Razor Views
+- **Student Management**:
+  - List all students with pagination and search functionality.
+  - View detailed information for a student, including enrolled courses.
+  - Add a new student using a form.
+  - Delete a student with a confirmation dialog.
+
+- **Teacher Management**:
+  - List all teachers, including basic details and courses they teach.
+  - View detailed information for a specific teacher.
+  - Add a new teacher using a form.
+  - Delete a teacher with a confirmation dialog.
+
+- **Course Management**:
+  - List all courses with basic course details.
+  - View detailed information for a specific course, including students and teachers linked to it.
+  - Add a new course using a form.
+  - Delete a course with a confirmation dialog.
 
 ---
 
@@ -47,7 +71,8 @@ This project is a web application designed to manage and display information rel
 - **Language**: C#
 - **Database**: MySQL
 - **Frontend**: Razor Pages
-
+- **CSS Frameworks**: Custom styling
+- **Tools**: Visual Studio, MySQL PHP admin.
 ---
 
 ## Setup Instructions
