@@ -88,7 +88,8 @@ namespace Cumulative1.Controllers
             {
                 Connection.Open(); // Open database connection
                 MySqlCommand command = Connection.CreateCommand();
-                string query = "SELECT CONCAT (t.teacherfname,' ', t.teacherlname) AS TeacherName , c.* FROM courses c INNER JOIN teachers t ON c.teacherid = t.teacherid WHERE courseid = @CourseId;"; 
+                string query = "SELECT CONCAT (t.teacherfname,' ', t.teacherlname) AS TeacherName , c.* FROM courses c " +
+                    "INNER JOIN teachers t ON c.teacherid = t.teacherid WHERE courseid = @CourseId;"; 
                 command.CommandText = query;
 
                 // Add parameter to prevent SQL injection
@@ -112,5 +113,81 @@ namespace Cumulative1.Controllers
 
             return SelectedCourse;
         }
+
+        [HttpPost("AddCourse")]
+
+        public int AddCourse([FromBody] Courses NewCourse)
+        {
+            using(MySqlConnection Connection = _connection.AccessDatabase())
+            {
+                Connection.Open();
+                MySqlCommand command = Connection.CreateCommand();
+
+                string query = "INSERT INTO courses (courseid,coursecode,teacherid,startdate,finishdate,coursename) " +
+                    "VALUES (@courseid, @coursecode,@teacherid,@startdate,@finishdate,@coursename);";
+
+                //since auto_increment is not enabled on course ID, I will check the max ID in the database and use it
+
+                string checkIdQuery = "SELECT MAX(courseid) AS maxID FROM courses";
+                
+                command.CommandText = checkIdQuery;
+                int maxCourseId = 0;
+                
+                using(MySqlDataReader Reader = command.ExecuteReader())
+                {
+                    if (Reader.Read())
+                    {
+                        maxCourseId = Convert.ToInt32(Reader["maxID"]);
+                    }
+                }
+
+
+                command.Parameters.AddWithValue("@courseid", maxCourseId + 1);
+                command.Parameters.AddWithValue("@coursecode", NewCourse.courseCode);
+                command.Parameters.AddWithValue("@teacherid", NewCourse.teacherId);
+                command.Parameters.AddWithValue("@startdate", NewCourse.startDate);
+                command.Parameters.AddWithValue("@finishdate", NewCourse.endDate);
+                command.Parameters.AddWithValue("@coursename", NewCourse.courseName);
+                command.CommandText = query;
+                command.Prepare();
+                command.ExecuteNonQuery();
+                return maxCourseId;
+
+
+            }
+            
+        }
+
+        [HttpDelete(template:"DeleteCourse/{Id}")]
+
+        public object DeleteCourse(int Id)
+        {
+            using(MySqlConnection conn = _connection.AccessDatabase())
+            {
+                conn.Open();
+                MySqlCommand command = conn.CreateCommand();
+                string query = "DELETE FROM courses WHERE courseid=@Id";
+                command.Parameters.AddWithValue("@Id", Id);
+                command.CommandText = query;
+                command.Prepare();
+                
+                int numberOfAffectedRows = command.ExecuteNonQuery();
+
+                //Error Handling on Delete when trying to delete a course that does not exist
+
+                if (numberOfAffectedRows == 0)
+                {
+                    return "No course found with ID " + Id + ".";
+                }
+
+                return "course with ID " + Id + " was deleted forever.";
+            }
+
+           
+        }
+
+
     }
+
+    
 }

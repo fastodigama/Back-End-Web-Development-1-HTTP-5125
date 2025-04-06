@@ -1,6 +1,48 @@
 [
   {
     "ContainingType": "Cumulative1.Controllers.CoursesAPIController",
+    "Method": "AddCourse",
+    "RelativePath": "api/CoursesAPI/AddCourse",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "NewCourse",
+        "Type": "Cumulative1.Models.Courses",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Int32",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Cumulative1.Controllers.CoursesAPIController",
+    "Method": "DeleteCourse",
+    "RelativePath": "api/CoursesAPI/DeleteCourse/{Id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Cumulative1.Controllers.CoursesAPIController",
     "Method": "FindCourse",
     "RelativePath": "api/CoursesAPI/FindCourse/{CourseId}",
     "HttpMethod": "GET",

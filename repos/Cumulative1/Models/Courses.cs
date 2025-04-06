@@ -21,6 +21,6 @@
         // The end date of the course.
         public DateTime endDate { set; get; }
 
-        public string TeacherName { get; set; }
+        public string? TeacherName { get; set; }
     }
 }

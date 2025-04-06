@@ -1,0 +1,9 @@
+﻿@model Cumulative1.Models.Courses;
+<h3> Are you shure you want to delete course @Model.courseCode @Model.courseName </h3>
+
+<a href="/CoursesPage/CourseShow/@Model.courseId"> No </a>
+
+<form action="/CoursesPage/DeleteCourse/@Model.courseId" method="post">
+	<input type="submit" name="DeleteCourse" value="Delete" />
+	
+</form>
