@@ -113,7 +113,25 @@ namespace Cumulative1.Controllers
 
             return SelectedCourse;
         }
-
+        /// <summary>
+        /// Adds a new course record to the database.
+        /// </summary>
+        /// <param name="NewCourse">Courses object containing the course details to be added.</param>
+        /// <example>
+        /// POST: api/CourseAPI/AddCourse
+        /// Headers: Content-Type: application/json
+        /// Request Body:
+        /// {
+        ///     "courseCode": "CSE101",
+        ///     "teacherId": 12,
+        ///     "startDate": "2025-01-10",
+        ///     "endDate": "2025-05-15",
+        ///     "courseName": "Introduction to Computer Science"
+        /// }
+        /// </example>
+        /// <returns>
+        /// The newly inserted CourseId from the database if successful.
+        /// </returns>
         [HttpPost("AddCourse")]
 
         public int AddCourse([FromBody] Courses NewCourse)
@@ -156,7 +174,21 @@ namespace Cumulative1.Controllers
 
             }
             
+            
         }
+        /// <summary>
+        /// Deletes a course from the database using the specified CourseId.
+        /// </summary>
+        /// <param name="Id">The ID of the course to be deleted.</param>
+        /// <example>
+        /// DELETE: api/CourseAPI/DeleteCourse/123
+        /// Response: "course with ID 123 was deleted forever."
+        /// OR
+        /// Response: "No course found with ID 123."
+        /// </example>
+        /// <returns>
+        /// A message indicating whether the course was successfully deleted or if no course was found with the given ID.
+        /// </returns>
 
         [HttpDelete(template:"DeleteCourse/{Id}")]
 

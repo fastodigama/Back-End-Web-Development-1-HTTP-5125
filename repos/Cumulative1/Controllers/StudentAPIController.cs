@@ -84,7 +84,17 @@ namespace Cumulative1.Controllers
 
             }
         }
-            [HttpGet(template: "FindStudent/{StudentId}")]
+
+        /// <summary>
+        /// Retrieves a student's details from the database using their StudentId.
+        /// </summary>
+        /// <example>
+        /// GET api/StudentAPI/FindStudent/123 -> {"StudentId":123,"StudentNumber":"S456","StudentFName":"John","StudentLName":"Doe","StudentEnrollDate":"2023-09-01"}
+        /// </example>
+        /// <returns>
+        /// A Students object matching the given StudentId. Returns an empty object if no matching student is found.
+        /// </returns>
+        [HttpGet(template: "FindStudent/{StudentId}")]
 
              public Students FindStudent(int StudentId)
             {

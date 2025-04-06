@@ -95,9 +95,10 @@ namespace Cumulative1.Controllers
         }
         [HttpPost]
 
-
+        
         public IActionResult Delete(int Id)
         {
+            //send the student id to the api and delets it
             _APIcontroller.DeleteStudent(Id);
 
             return RedirectToAction("StudentList");
