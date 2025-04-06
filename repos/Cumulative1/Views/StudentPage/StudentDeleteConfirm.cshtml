@@ -49,7 +49,7 @@
 <h2>Are you sure you want to delete student  @Model.StudentFName @Model.StudentLName?</h2>
 
 <a href="/StudentPage/StudentShow/@Model.StudentId">Back</a>
-<form action="/StudentPage/DeleteStudent/@Model.StudentId" method="POST">
+<form action="/StudentPage/delete/@Model.StudentId" method="POST">
 	<input type="submit" name="Delete" value="Delete" />
 
 </form>

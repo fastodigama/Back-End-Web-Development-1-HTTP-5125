@@ -146,7 +146,7 @@ namespace Cumulative1.Controllers
                 MySqlCommand command = Connection.CreateCommand();
 
                 //LEFT JOIN To Include teachers with no courses
-                string sqlQuery = "SELECT t.employeenumber , t.hiredate, t.salary, t.teacherfname," +
+                string sqlQuery = "SELECT t.teacherworkphone, t.employeenumber , t.hiredate, t.salary, t.teacherfname," +
                     " t.teacherlname, t.teacherid," +
                     " c.coursecode, c.courseid, c.coursename,c.finishdate,c.startdate" +
                     " FROM teachers t LEFT JOIN courses c ON t.teacherid = c.teacherid WHERE t.teacherid=@TeacherId;";
@@ -166,6 +166,7 @@ namespace Cumulative1.Controllers
                         SelectedTeacher.EmployeeNumber = dataReader["employeenumber"].ToString();
                         SelectedTeacher.HireDate = Convert.ToDateTime(dataReader["hiredate"]);
                         SelectedTeacher.Salary = Convert.ToDecimal(dataReader["salary"]);
+                        SelectedTeacher.teacherworkphone = dataReader["teacherworkphone"].ToString();
                         SelectedTeacher.teacherCourses = new List<Courses>();
 
                         // Check if course fields are NULL
@@ -223,9 +224,10 @@ namespace Cumulative1.Controllers
         ///   "employeeNumber": "T123",
         ///   "hireDate": "1981-05-25",
         ///   "salary": 99.3
+        ///   "teacherworkphone":"4168051041"
         /// }
         /// Example cURL:
-        /// curl -X "POST" -d "{\"TeacherFname\":\"Fadel\",\"TeacherLname\":\"I M\",\"EmployeeNumber\":\"T789\",\"HireDate\":\"2025-03-25\",\"Salary\":\"55.5\"}" -H "Content-Type: application/json" "https://localhost:xx/API/TeacherAPI/AddTeacher"
+        /// curl -X "POST" -d "{\"TeacherFname\":\"Fadel\",\"TeacherLname\":\"I M\",\"EmployeeNumber\":\"T123\",\"HireDate\":\"1981-05-25\",\"Salary\":\"99.3\",\"teacherworkphone\":\"4168051041\"}" -H "Content-Type: application/json" "https://localhost:xx/API/TeacherAPI/AddTeacher"
         /// </example>
 
         [HttpPost(template: "AddTeacher")]
@@ -263,8 +265,8 @@ namespace Cumulative1.Controllers
             }
 
             //adding the teacher
-              string query = "INSERT INTO teachers(teacherfname, teacherlname, employeenumber, hiredate, salary ) " +
-                "VALUES(@teacherfname, @teacherlname,@employeenumber,@hiredate,@salary);";
+              string query = "INSERT INTO teachers(teacherfname, teacherlname, employeenumber, hiredate, salary,teacherworkphone) " +
+                "VALUES(@teacherfname, @teacherlname,@employeenumber,@hiredate,@salary,@teacherworkphone);";
 
             using (MySqlConnection Connection = _connection.AccessDatabase())
             {
@@ -285,12 +287,14 @@ namespace Cumulative1.Controllers
                     }
                 }
 
-                command.CommandText = query;
+                    command.CommandText = query;
                     command.Parameters.AddWithValue("@teacherfname", NewTeacher.TeacherFname);
                     command.Parameters.AddWithValue("@teacherlname", NewTeacher.TeacherLname);
                     command.Parameters.AddWithValue("@employeenumber", NewTeacher.EmployeeNumber);
                     command.Parameters.AddWithValue("@hiredate", NewTeacher.HireDate);
                     command.Parameters.AddWithValue("@salary", NewTeacher.Salary);
+                //initiative
+                    command.Parameters.AddWithValue("@teacherworkphone", NewTeacher.teacherworkphone);
                     command.Prepare();
                     command.ExecuteNonQuery();
                     return Convert.ToInt32(command.LastInsertedId);

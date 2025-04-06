@@ -70,7 +70,7 @@ namespace Cumulative1.Controllers
         ///   "StudentEnrollDate": "2025-04-05"
         /// }
         /// Example cURL:
-        /// curl -X "POST" -d "{\"StudentFirstName\":\"Alice\",\"StudentLastName\":\"Brown\",\"StudentNumber\":\"S123\",\"StudentEnrollDate\":\"2025-04-05\"}" -H "Content-Type: application/json" "https://localhost:xx/API/StudentAPI/CreateStudent"
+        /// curl -X "POST" -d "{\"StudentFirstName\":\"Alice\",\"StudentLastName\":\"Brown\",\"StudentNumber\":\"N123\",\"StudentEnrollDate\":\"2025-04-05\"}" -H "Content-Type: application/json" "https://localhost:xx/API/StudentAPI/CreateStudent"
         /// </example>
 
 
@@ -93,10 +93,10 @@ namespace Cumulative1.Controllers
             // Pass the selected student to the StudentDeleteConfirm view
             return View(SelectedStudent);
         }
-        [HttpPost("DeleteStudent/{Id}")]
+        [HttpPost]
 
 
-        public IActionResult StudentDelete(int Id)
+        public IActionResult Delete(int Id)
         {
             _APIcontroller.DeleteStudent(Id);
 

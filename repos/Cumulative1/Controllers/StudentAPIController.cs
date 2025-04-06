@@ -1,4 +1,5 @@
-﻿using Cumulative1.Models;
+﻿using System.Diagnostics;
+using Cumulative1.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MySql.Data.MySqlClient;
@@ -143,7 +144,7 @@ namespace Cumulative1.Controllers
 
         [HttpPost(template: "AddStudent")]
 
-        public object AddStudent([FromBody] Students NewStudent)
+        public int AddStudent([FromBody] Students NewStudent)
         {
             using (MySqlConnection Connection = _connection.AccessDatabase())
             {
@@ -152,13 +153,14 @@ namespace Cumulative1.Controllers
                 string query = "INSERT INTO students(studentfname, studentlname, studentnumber, enroldate)" +
                     " VALUES(@studentfname, @studentlname, @studentnumber, @enroldate);";
 
+                Console.WriteLine(NewStudent.StudentEnrolDate);
 
 
-                
                 command.Parameters.AddWithValue("@studentfname", NewStudent.StudentFName);
                 command.Parameters.AddWithValue("@studentlname", NewStudent.StudentLName);
                 command.Parameters.AddWithValue("@studentnumber", NewStudent.studentnumber);
                 command.Parameters.AddWithValue("@enroldate", NewStudent.StudentEnrolDate);
+                Debug.WriteLine(NewStudent.StudentEnrolDate);
                 command.CommandText = query;
                 command.Prepare(); // Prepare the command to prevent SQL injection
 
@@ -190,7 +192,7 @@ namespace Cumulative1.Controllers
         /// curl -X "DELETE" "https://localhost:xx/API/StudentAPI/DeleteStudent/5"
         /// </example>
         
-        [HttpPost(template: "DeleteStudent/{StudentId}")]
+        [HttpDelete(template: "/DeleteStudent/{StudentId}")]
 
         public string DeleteStudent(int StudentId)
         {
