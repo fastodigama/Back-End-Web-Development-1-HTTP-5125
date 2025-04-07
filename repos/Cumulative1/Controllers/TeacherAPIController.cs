@@ -44,7 +44,7 @@ namespace Cumulative1.Controllers
         /// </returns>  
         [HttpGet(template: "ListTeachers")]
 
-        public List<Teacher> ListTeachers(DateTime fromDate = default , DateTime toDate = default)
+        public List<Teacher> ListTeachers(DateTime fromDate = default , DateTime toDate = default , string SearchAjax = null)
         {
             List<Teacher> Teachers = new List<Teacher>(); //define a list to add the list
                                                           //of retrieved teachers from the database in it
@@ -59,14 +59,23 @@ namespace Cumulative1.Controllers
                 if (fromDate != default && toDate != default)
                 {
                     // Add a WHERE clause to the SQL query to filter records based on the hire date range
-                    sqlQuery += " WHERE hiredate >= @fromDate AND hiredate <= @toDate";
+                    sqlQuery += " WHERE (hiredate >= @fromDate AND hiredate <= @toDate)";
 
                     //
                     command.Parameters.AddWithValue("@fromDate", fromDate);// Binds the fromDate parameter to @fromDate in the query
                     command.Parameters.AddWithValue("@toDate", toDate); // Binds the toDate parameter to @toDate in the query
+                    }
+                // Check if SearchKey is provided
+                if (!string.IsNullOrEmpty(SearchAjax))
+                {
+                    sqlQuery += " WHERE " +
+                                "(lower(teacherfname) LIKE @key OR lower(teacherlname) LIKE @key OR" +
+                                " lower(concat(teacherfname, ' ', teacherlname)) LIKE @key);";
+                    command.Parameters.AddWithValue("@key", $"%{SearchAjax}%");
                 }
 
-                
+
+
 
                 command.CommandText = sqlQuery; //assign the query to the command
 
@@ -91,7 +100,7 @@ namespace Cumulative1.Controllers
                         // declare a Teacher object to use it to add to the Teacher List
 
                         Teacher CurrentTeacher = new Teacher();
-                        CurrentTeacher.TeatcherId = TeacherID;
+                        CurrentTeacher.TeacherId = TeacherID;
                         CurrentTeacher.TeacherFname = TeacherFirstName;
                         CurrentTeacher.TeacherLname = TeacherLastName;
                         CurrentTeacher.EmployeeNumber = EmployeeNumber;
@@ -160,7 +169,7 @@ namespace Cumulative1.Controllers
 
 
 
-                        SelectedTeacher.TeatcherId = Convert.ToInt32(dataReader["teacherid"]);
+                        SelectedTeacher.TeacherId = Convert.ToInt32(dataReader["teacherid"]);
                         SelectedTeacher.TeacherFname = dataReader["teacherfname"].ToString();
                         SelectedTeacher.TeacherLname = dataReader["teacherlname"].ToString();
                         SelectedTeacher.EmployeeNumber = dataReader["employeenumber"].ToString();

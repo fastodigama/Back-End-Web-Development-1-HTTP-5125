@@ -244,6 +244,11 @@
         "Name": "toDate",
         "Type": "System.DateTime",
         "IsRequired": false
+      },
+      {
+        "Name": "SearchAjax",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": [

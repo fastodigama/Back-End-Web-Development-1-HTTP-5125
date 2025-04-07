@@ -3,7 +3,7 @@
     //Teacher Class model is to represent the teacher data on the database
     public class Teacher
     {
-        public int TeatcherId { get; set; } // TeacherId will represent teacherid in the teachers table
+        public int TeacherId { get; set; } // TeacherId will represent teacherid in the teachers table
         public string TeacherFname { get; set; } // TeacherFname will represent teacherfname in the teachers table
         public string TeacherLname { get; set; } // TeacherLname will represent teacherlname in the teachers table
         public string EmployeeNumber { get; set; } // EmployeeNumber will represent employee_number in the teachers table

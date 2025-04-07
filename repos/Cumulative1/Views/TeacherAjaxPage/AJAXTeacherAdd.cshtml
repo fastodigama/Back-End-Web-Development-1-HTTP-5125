@@ -1,0 +1,77 @@
+﻿<h2>Teacher Add with AJAX</h2>
+<div id="containershow">
+    <nav>
+        <a class="navlink" href="/TeacherPage/List">Back To Teachers</a>
+    </nav>
+    <h2>New Teacher</h2>
+    <div>
+        <div class="inputrow">
+            <label for="TeacherFname">First Name:</label>
+            <input type="text" id="TeacherFname" name="TeacherFname" />
+        </div>
+        <div class="inputrow">
+            <label for="TeacherLname">Last Name:</label>
+            <input type="text" id="TeacherLname" name="TeacherLname" />
+        </div>
+        <div class="inputrow">
+            <label for="EmployeeNumber">Employee Number:</label>
+            <input type="text" id="EmployeeNumber" name="EmployeeNumber" />
+        </div>
+        <div class="inputrow">
+            <label for="HireDate">Hire Date:</label>
+            <input type="date" id="HireDate" name="HireDate" />
+        </div>
+        <div class="inputrow">
+            <label for="Salary">Salary:</label>
+            <input type="number" id="Salary" name="Salary" step="0.01" />
+        </div>
+        <div class="inputrow">
+            <label for="TeacherWorkPhone">Work Phone:</label>
+            <input type="text" id="TeacherWorkPhone" name="TeacherWorkPhone" />
+        </div>
+        <div class="inputrow">
+            <input type="submit" value="Create Teacher" onclick="AddTeacher()" />
+        </div>
+    </div>
+</div>
+<script>
+    function AddTeacher() {
+        var URL = "/api/TeacherAPI/AddTeacher/";
+
+        var XHR = new XMLHttpRequest();
+
+        // Collect values from input fields
+        var TeacherFname = document.getElementById('TeacherFname').value;
+        var TeacherLname = document.getElementById('TeacherLname').value;
+        var EmployeeNumber = document.getElementById('EmployeeNumber').value;
+        var HireDate = document.getElementById('HireDate').value;
+        var Salary = document.getElementById('Salary').value;
+        var TeacherWorkPhone = document.getElementById('TeacherWorkPhone').value;
+
+        // Create an object containing teacher details
+        var TeacherData = {
+            "TeacherFname": TeacherFname,
+            "TeacherLname": TeacherLname,
+            "EmployeeNumber": EmployeeNumber,
+            "HireDate": HireDate,
+            "Salary": Salary,
+            "TeacherWorkPhone": TeacherWorkPhone
+        };
+
+        // Initialize and configure the POST request
+        XHR.open("POST", URL, true);
+        XHR.setRequestHeader("Content-Type", "application/json");
+
+        XHR.onreadystatechange = function () {
+            // Ensure the request is complete and successful
+            if (XHR.readyState == 4 && XHR.status == 200) {
+                // If successful, get the newly created teacher's ID
+                var TeacherId = XHR.responseText;
+                // Redirect to the page showing teacher details
+                window.location = "/TeacherPage/Show/" + TeacherId;
+            }
+        };
+        // Send the teacher data as JSON
+        XHR.send(JSON.stringify(TeacherData));
+    }
+</script>

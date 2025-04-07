@@ -1,0 +1,103 @@
+﻿<a href="/TeacherAjaxPage/AJAXTeacherAdd">Add New Teacher Using AJAX</a>
+
+<h2> AJAX Search Box</h2>
+
+<div>
+    <input type="text" name="SearchAjax" onkeyup="_ListTeachers(this);" />
+</div>
+
+<div id="TeacherResults">
+</div>
+
+<script>
+
+    function _ListTeachers(inputValue) {
+        console.log('Delaying search...');
+        // Clear any existing timer to avoid premature execution
+        if (inputValue.timer) {
+            clearTimeout(inputValue.timer);
+        }
+        // Set a delay to prevent rapid calls during typing
+        inputValue.timer = setTimeout(function() {
+            ListTeachers(inputValue);
+        }, 300);
+    }
+
+    function ListTeachers(inputValue) {
+        console.log("Sending AJAX request...");
+        var URL = "/API/TeacherAPI/ListTeachers?SearchAjax=" + inputValue.value;
+
+        var XHR = new XMLHttpRequest();
+        var TeacherResults = document.getElementById('TeacherResults'); // Element to show search results
+        TeacherResults.innerHTML = ""; // Clear previous teacher results
+
+        XHR.open("GET", URL, true);
+        XHR.setRequestHeader("Content-Type", "application/json");
+
+        XHR.onreadystatechange = function () {
+            // Ensure request is complete and successful
+            if (XHR.readyState == 4 && XHR.status == 200) {
+                // Parse and handle the JSON response
+                var Teachers = JSON.parse(XHR.responseText);
+                for (var i = 0; i < Teachers.length; i++) {
+                    // Logging teacher details for debugging purposes
+                    console.log(Teachers[i]);
+
+                    // Create a row element to display each teacher
+                    var row = document.createElement('div');
+                    // Create a hyperlink to view teacher details
+                    var link = document.createElement('a');
+                    link.href = "/TeacherPage/Show/"+Teachers[i].teacherId;
+                    link.style.marginRight = "10px";
+                    link.style.display = "inline-block";
+
+                    // Create a button to delete the teacher
+                    var button = document.createElement('button');
+                    button.teacherId = Teachers[i].teacherId;
+                    button.addEventListener("click", function () {
+                        DeleteTeacher(this);
+                    });
+                    button.innerHTML = "Delete";
+                    button.style.color = "red";
+                    button.style.backgroundColor = "white";
+                    button.style.borderColor = "black";
+
+                    // Display teacher's full name as the hyperlink text
+                    link.innerHTML = Teachers[i].teacherFname + " " + Teachers[i].teacherLname;
+                    row.appendChild(link);
+                    row.appendChild(button);
+                    TeacherResults.appendChild(row); // Add the row to the results container
+                }
+            }
+        };
+        // Send the GET request
+        XHR.send();
+    }
+
+    function DeleteTeacher(param) {
+        var id = param.teacherId;
+        // Validate that the ID is a valid number
+        if (parseInt(id) != id) return;
+        // Confirm action before proceeding with deletion
+        if (!confirm(`Are you sure you want to delete this Teacher # ${id}?`)) return;
+
+        var URL = "/API/TeacherAPI/DeleteTeacher/" + id;
+
+        var XHR = new XMLHttpRequest();
+
+        XHR.open("DELETE", URL, true);
+        XHR.setRequestHeader("Content-Type", "application/json");
+
+        XHR.onreadystatechange = function () {
+            // Ensure request is complete and successful
+            if (XHR.readyState == 4 && XHR.status == 200) {
+                // Notify the user upon successful deletion
+                alert('Teacher deleted successfully');
+                ListTeachers(document.getElementById('SearchAjax')); // Refresh the teacher search results
+            }
+        };
+        // Send the DELETE request
+        XHR.send();
+    }
+
+</script>

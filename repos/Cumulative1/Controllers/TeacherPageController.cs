@@ -70,7 +70,7 @@ namespace Cumulative1.Controllers
             _APIcontroller.AddTeacher(NewTeacher);
 
             //return to the teacher list
-            return RedirectToAction("List", NewTeacher.TeatcherId);
+            return RedirectToAction("List", NewTeacher.TeacherId);
         }
 
         //GET : /TeacherPage/DeleteConfirm/{Id} -> A webpage that asks the user to confirm deletion of a teacher

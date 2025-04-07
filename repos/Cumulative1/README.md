@@ -1,7 +1,7 @@
 # Teacher, Student, and Course Management System
 
 ## Project Overview
-This project is a web application designed to manage and display information related to teachers, students, and courses. It includes functionality for listing, searching, viewing, adding, and deleting data through both API endpoints and Razor views. The system is built using ASP.NET Core MVC and integrates MySQL for database operations.
+This project is a web application designed to manage and display information related to teachers, students, and courses. It includes functionality for listing, searching, viewing, adding, and deleting data through both API endpoints, Razor views, and AJAX functionalities. The system is built using ASP.NET Core MVC and integrates MySQL for database operations.
 
 ---
 
@@ -26,7 +26,18 @@ This project is a web application designed to manage and display information rel
   - `AddTeacher`: Adds a new teacher to the database.
   - `DeleteTeacher`: Deletes a teacher by ID from the database.
 
-### 2. Razor Page Controllers
+### 2. AJAX Functionalities for Teachers
+- **List Teachers**:
+  - Dynamically fetches and displays a list of teachers without refreshing the page.
+  - Integrates search and pagination for enhanced usability.
+- **Add Teacher**:
+  - Provides an interactive form to add a new teacher using AJAX.
+  - Updates the teacher list seamlessly upon successful addition.
+- **Delete Teacher**:
+  - Allows deletion of a teacher via AJAX without reloading the page.
+  - Ensures instant feedback and updates the displayed list automatically.
+
+### 3. Razor Page Controllers
 - **StudentPageController**:
   - `StudentList`: Displays a list of all students in a Razor view.
   - `StudentShow`: Displays detailed information about a specific student.
@@ -45,7 +56,7 @@ This project is a web application designed to manage and display information rel
   - `AddCoursePage`: Provides a form to add a new course and displays confirmation.
   - `DeleteCoursePage`: Allows deletion of a course via ID.
 
-### 3. Razor Views
+### 4. Razor Views
 - **Student Management**:
   - List all students with pagination and search functionality.
   - View detailed information for a student, including enrolled courses.
@@ -72,7 +83,9 @@ This project is a web application designed to manage and display information rel
 - **Database**: MySQL
 - **Frontend**: Razor Pages
 - **CSS Frameworks**: Custom styling
+- **AJAX**: For dynamic, asynchronous functionalities
 - **Tools**: Visual Studio, MySQL PHP admin.
+
 ---
 
 ## Setup Instructions
