@@ -14,6 +14,6 @@
 
         public string? errorMessage { get; set; } // to display error msg if teacher is not found
 
-        public string teacherworkphone { get; set; } // TeacherWorkPhone will represent teacherworkphone in the teachers table
+        public string teacherworkphone { get; set; }     // TeacherWorkPhone will represent teacherworkphone in the teachers table
     }
 }

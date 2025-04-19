@@ -355,6 +355,99 @@ namespace Cumulative1.Controllers
             }
         }
 
+        /// <summary>
+        /// Updates a Teacher in the database. The data comes from the Teacher object in the request body,
+        /// while the query contains the Teacher ID.
+        /// </summary>
+        /// <param name="TeacherId">The Teacher ID primary key</param>
+        /// <param name="UpdatedTeacher">Teacher object containing the updated details</param>
+        /// <example>
+        /// PUT: api/TeacherAPI/UpdateTeacher/29
+        /// Headers: Content-Type: application/json
+        /// Request Body:
+        /// {
+        ///     "TeacherFname": "Fadel",
+        ///     "TeacherLname": "Matar",
+        ///     "HireDate": "2023-04-06",
+        ///     "Salary": 55.00,
+        ///     "teacherworkphone": "123-456-7890"
+        /// }
+        /// 
+        /// {
+        ///     "TeacherId": 1,
+        ///     "TeacherFname": "Fadel",
+        ///     "TeacherLname": "Matar",
+        ///     "HireDate": "2023-04-06",
+        ///     "Salary": 55.00,
+        ///     "teacherworkphone": "123-456-7890"
+        /// }
+        /// </example>
+        /// <returns>
+        /// The updated Teacher object
+        /// </returns>
+
+        [HttpPut(template: "UpdateTeacher/{TeacherId}")]
+        public object UpdateTeacher([FromRoute] int TeacherId, [FromBody] Teacher UpdatedTeacher)
+        {
+            
+                // check if teacher first or last name is null or empty
+
+                if (string.IsNullOrEmpty(UpdatedTeacher.TeacherFname) || string.IsNullOrEmpty(UpdatedTeacher.TeacherLname))
+            {
+                return "Teacher first name or last name cannot be empty.";
+
+            }
+
+            // check if Teacher Hire Date is in the future
+
+            if (UpdatedTeacher.HireDate > DateTime.Now)
+            {
+                return "Teacher hire date cannot be in the future.";
+            }
+
+            //check Employee Number is not “T” followed by digits
+
+            //source:https://www.youtube.com/watch?v=0lU_DG7s0qA&t=20s
+
+            var pattern = @"^T\d{3}$";
+
+            Match employeeNumberMatch = Regex.Match(UpdatedTeacher.EmployeeNumber, pattern);
+
+            if (!employeeNumberMatch.Success)
+            {
+                return "Employee number must start with 'T' followed by digits.";
+            }
+
+            //updating the teacher
+            string query = "UPDATE teachers " +
+               "SET teacherfname=@teacherfname, teacherlname=@teacherlname," +
+               " employeenumber=@employeenumber, hiredate=@hiredate, salary=@salary," +
+               " teacherworkphone=@teacherworkphone " +
+               "WHERE teacherid=@teacherid;";
+
+            using (MySqlConnection Connection = _connection.AccessDatabase())
+            {
+                Connection.Open();
+                MySqlCommand command = Connection.CreateCommand();
+
+                command.CommandText = query;
+                command.Parameters.AddWithValue("@teacherid", TeacherId);
+                command.Parameters.AddWithValue("@teacherfname", UpdatedTeacher.TeacherFname);
+                command.Parameters.AddWithValue("@teacherlname", UpdatedTeacher.TeacherLname);
+                command.Parameters.AddWithValue("@employeenumber", UpdatedTeacher.EmployeeNumber);
+                command.Parameters.AddWithValue("@hiredate", UpdatedTeacher.HireDate);
+
+                command.Parameters.AddWithValue("@salary", UpdatedTeacher.Salary);
+                //initiative
+                command.Parameters.AddWithValue("@teacherworkphone", UpdatedTeacher.teacherworkphone);
+                command.Prepare();
+                command.ExecuteNonQuery();
+                
+            }
+
+            return FindTeacher(TeacherId);
+        }
+
 
 
 

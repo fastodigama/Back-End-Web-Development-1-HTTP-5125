@@ -97,5 +97,45 @@ namespace Cumulative1.Controllers
             return RedirectToAction("List");
         }
 
+        //GET:/TeacherPage/Edit/{Id} // A webpage that will display the Teacher information as ask for updates
+        [HttpGet]
+
+        public IActionResult Edit(int Id)
+        {
+
+            //first we need to find the Teacher
+
+            Teacher SelectedTeacher =  _APIcontroller.FindTeacher(Id);
+
+
+            return View(SelectedTeacher);
+        }
+
+        //POST TeacherPage/Update/{id} -> recieve teacher info and update the database
+        //content-type:   application/x-www-form-urlencoded
+        //FORM DATA: TeacherPage={ALL Teacher Info}
+
+       
+        [HttpPost]
+        public IActionResult UpdateTeacher(int id, string TeacherFName, string TeacherLName, string EmployeeNumber, DateTime HireDate, decimal Salary, string TeacherWorkPhone)
+        {
+            // Create a new Teacher for the update
+            Teacher UpdatedTeacher = new Teacher();
+            UpdatedTeacher.TeacherFname = TeacherFName;
+            UpdatedTeacher.TeacherLname = TeacherLName;
+            UpdatedTeacher.EmployeeNumber = EmployeeNumber;
+            UpdatedTeacher.HireDate = HireDate;
+            UpdatedTeacher.Salary = Salary;
+            UpdatedTeacher.teacherworkphone = TeacherWorkPhone;
+
+            // Pass the updated teacher to the API or service for saving
+            _APIcontroller.UpdateTeacher(id, UpdatedTeacher);
+
+            // Redirect to the list page or another relevant page
+            return RedirectToAction("Show", new { id = id });
+
+        }
+
+
     }
 }
