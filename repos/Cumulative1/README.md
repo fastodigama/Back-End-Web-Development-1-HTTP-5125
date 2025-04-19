@@ -1,7 +1,7 @@
 # Teacher, Student, and Course Management System
 
 ## Project Overview
-This project is a web application designed to manage and display information related to teachers, students, and courses. It includes functionality for listing, searching, viewing, adding, and deleting data through both API endpoints, Razor views, and AJAX functionalities. The system is built using ASP.NET Core MVC and integrates MySQL for database operations.
+This project is a web application designed to manage and display information related to teachers, students, and courses. It includes functionality for listing, searching, viewing, adding, updating, and deleting data through both API endpoints, Razor views, and AJAX functionalities. The system is built using ASP.NET Core MVC and integrates MySQL for database operations.
 
 ---
 
@@ -24,6 +24,7 @@ This project is a web application designed to manage and display information rel
   - `ListTeachers`: Retrieves a list of all teachers from the database.
   - `FindTeacher`: Retrieves details for a specific teacher by ID.
   - `AddTeacher`: Adds a new teacher to the database.
+  - `UpdateTeacher`: Updates details of a specific teacher by ID.
   - `DeleteTeacher`: Deletes a teacher by ID from the database.
 
 ### 2. AJAX Functionalities for Teachers
@@ -33,6 +34,9 @@ This project is a web application designed to manage and display information rel
 - **Add Teacher**:
   - Provides an interactive form to add a new teacher using AJAX.
   - Updates the teacher list seamlessly upon successful addition.
+- **Update Teacher**:
+  - Allows updating a teacher's details through an interactive form using AJAX.
+  - Ensures smooth updates to the displayed data without refreshing the page.
 - **Delete Teacher**:
   - Allows deletion of a teacher via AJAX without reloading the page.
   - Ensures instant feedback and updates the displayed list automatically.
@@ -48,6 +52,7 @@ This project is a web application designed to manage and display information rel
   - `TeacherList`: Displays a list of all teachers in a Razor view.
   - `Show`: Displays detailed information about a specific teacher, including courses taught by them.
   - `AddTeacherPage`: Provides a form to add a new teacher and displays confirmation.
+  - `UpdateTeacherPage`: Provides a form to update a teacher's details and displays confirmation.
   - `DeleteTeacherPage`: Allows deletion of a teacher via ID.
 
 - **CoursePageController**:
@@ -67,6 +72,7 @@ This project is a web application designed to manage and display information rel
   - List all teachers, including basic details and courses they teach.
   - View detailed information for a specific teacher.
   - Add a new teacher using a form.
+  - Update a teacher using an interactive form.
   - Delete a teacher with a confirmation dialog.
 
 - **Course Management**:
@@ -84,7 +90,7 @@ This project is a web application designed to manage and display information rel
 - **Frontend**: Razor Pages
 - **CSS Frameworks**: Custom styling
 - **AJAX**: For dynamic, asynchronous functionalities
-- **Tools**: Visual Studio, MySQL PHP admin.
+- **Tools**: Visual Studio, MySQL.
 
 ---
 
